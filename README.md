@@ -11,11 +11,11 @@
 
 
 ## *:rocket: Instalation*
-#### STEP 1 Create DB
+#### :arrow_right: Create DB
 Create Database `db_laravel9`
-#### STEP 2 Config ENV
+#### :arrow_right: Config ENV
 Change file `env.development` to `.env`
-#### STEP 3 Set Up
+#### :arrow_right: Set Up
 Open Terminal in your folder project and run command:
 ```
 composer install
@@ -27,13 +27,13 @@ php artisan migrate
 php artisan db:seed
 ```
 
-#### STEP 4 Running The Project
+#### :arrow_right: Running The Project
 ```
 php artisan serve
 ```
 and put `http://127.0.0.1:8000/` in your browser.
 
-#### STEP 5 Login Default
+#### :arrow_right: Login Default
 username: `superadmin` password: `12345678`
 username: `admin` password: `12345678`
 username: `operator` password: `12345678`
