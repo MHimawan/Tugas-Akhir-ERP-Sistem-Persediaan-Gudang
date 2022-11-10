@@ -1,18 +1,23 @@
 ![thumnail](https://user-images.githubusercontent.com/47371845/201010759-6eb0901a-8490-43f1-8b6a-772b39965a3e.png)
 
+## *:information_source: About*
+Source Code ini merupakan starter dari Framework `Laravel` yang sudah ada fitur `Login dengan role user yang berbeda serta menu yang bisa di tambah atau di hapus sesuai kebutuhan kita dan juga bisa mengatur akses menu apa saja yang ingin di tampilkan berdasarkan role.` Alasan saya membuat starter Laravel tersebut `untuk mempercepat proses pembuatan sebuah aplikasi berbasis web` agar bisa menghemat beberapa waktu pengerjaanya.
+<br><br>
+Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash admin`.
+
 ## *:sparkles: Fitur*
 * **Login**
 * **Menu** `Create`, `Read`, `Update`, `Delete`
 * **Role** `Create`, `Read`, `Update`, `Delete`
 * **User** `Create`, `Read`, `Update`, `Delete`
-* **Role Access** `Manage menu by role user`
-* **Web Setting** `Update Profile Website`
+* **Hak Akses** `Mengatur Hak Akses Menu berdasarkan Role User`
+* **Pengaturan Website** `Merubah Profil Website`
 
 ## *:electric_plug: Plugin*
 * **Yajra Datatables**
 * **SweetAlert**
 * **jQuery**
-* **and more..**
+* **dan banyak lagi..**
 
 ## *:gear: Requirement*
 <p>
@@ -22,13 +27,13 @@
 <img alt="gambar" src="https://img.shields.io/badge/Composer%20-%5E2.3.9-green"/>
 </p>
 
-## *:rocket: Instalation*
-#### :arrow_right: Create DB
-Create Database `db_laravel9`
+## *:rocket: Instalasi*
+#### :arrow_right: Buat Database
+Buat Database `db_laravel9`
 #### :arrow_right: Config ENV
-Change file `env.development` to `.env`
+Ubah file dari `env.development` jadi `.env`
 #### :arrow_right: Set Up
-Open Terminal in your folder project and run command:
+Buka Terminal di proyek folder Anda dan jalankan perintah dibawah ini:
 ```
 composer install
 ```
@@ -39,11 +44,11 @@ php artisan migrate
 php artisan db:seed
 ```
 
-#### :arrow_right: Running The Project
+#### :arrow_right: Jalankan Aplikasi
 ```
 php artisan serve
 ```
-and put `http://127.0.0.1:8000/` in your browser.
+copy & paste `http://127.0.0.1:8000/` ke browser anda.
 
 #### :arrow_right: Login Default
 username: `superadmin` password: `12345678`
