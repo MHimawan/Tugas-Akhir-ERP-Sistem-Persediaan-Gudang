@@ -43,7 +43,9 @@ php artisan migrate
 ```
 php artisan db:seed
 ```
-
+```
+php artisan storage:link
+```
 #### :arrow_right: Jalankan Aplikasi
 ```
 php artisan serve
