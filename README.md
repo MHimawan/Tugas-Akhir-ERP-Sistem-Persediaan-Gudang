@@ -1,5 +1,19 @@
 ![thumnail](https://user-images.githubusercontent.com/47371845/201010759-6eb0901a-8490-43f1-8b6a-772b39965a3e.png)
 
+## *:sparkles: Fitur*
+* **Login**
+* **Menu** `Create`, `Read`, `Update`, `Delete`
+* **Role** `Create`, `Read`, `Update`, `Delete`
+* **User** `Create`, `Read`, `Update`, `Delete`
+* **Role Access** `Manage menu by role user`
+* **Web Setting** `Update Profile Website`
+
+## *:electric_plug: Plugin*
+* **Yajra Datatables**
+* **SweetAlert**
+* **jQuery**
+* **and more..**
+
 ## *:gear: Requirement*
 <p>
 <img alt="gambar" src="https://img.shields.io/badge/PHP%20-%5E8.1-green"/>
@@ -7,8 +21,6 @@
 <img alt="gambar" src="https://img.shields.io/badge/Npm%20-%5E8.3.1-green"/>
 <img alt="gambar" src="https://img.shields.io/badge/Composer%20-%5E2.3.9-green"/>
 </p>
-
-
 
 ## *:rocket: Instalation*
 #### :arrow_right: Create DB
