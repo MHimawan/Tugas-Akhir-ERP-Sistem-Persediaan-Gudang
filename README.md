@@ -39,3 +39,10 @@ username: `superadmin` password: `12345678`
 username: `admin` password: `12345678`
 <br>
 username: `operator` password: `12345678`
+
+## *:desktop_computer: Preview*
+![8faaae9a-7cb7-48c1-8ca3-63c002b7dac5](https://user-images.githubusercontent.com/47371845/201025225-e6f8b42a-77bc-4e5f-98f2-0a696c324a95.png)
+![523c9b2c-ddc0-4b8b-b846-b62bbece8960](https://user-images.githubusercontent.com/47371845/201025361-414bfa9f-8d81-4b03-ac89-4ca219d3a1c2.png)
+![23b42a0a-f7b7-482c-82f0-de4e97888ef2](https://user-images.githubusercontent.com/47371845/201025389-97b6fe2d-b9e9-4118-81dd-d10d6ef4b907.png)
+![6c295617-3f95-48c2-a4e3-23e4004bbca2](https://user-images.githubusercontent.com/47371845/201025421-1df22394-b8e2-49c6-bdb7-44b210b84973.png)
+
