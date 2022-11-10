@@ -61,5 +61,9 @@ username: `operator` password: `12345678`
 ![8faaae9a-7cb7-48c1-8ca3-63c002b7dac5](https://user-images.githubusercontent.com/47371845/201025225-e6f8b42a-77bc-4e5f-98f2-0a696c324a95.png)
 ![523c9b2c-ddc0-4b8b-b846-b62bbece8960](https://user-images.githubusercontent.com/47371845/201025361-414bfa9f-8d81-4b03-ac89-4ca219d3a1c2.png)
 ![23b42a0a-f7b7-482c-82f0-de4e97888ef2](https://user-images.githubusercontent.com/47371845/201025389-97b6fe2d-b9e9-4118-81dd-d10d6ef4b907.png)
+![c185fe9b-0f09-4dc7-8b00-974ab1669e8f](https://user-images.githubusercontent.com/47371845/201039495-82057085-2d23-4f9d-a28a-543dc157a22b.png)
+![eb1cc3d3-fb50-4e0d-9b9c-2f1f71bc1498](https://user-images.githubusercontent.com/47371845/201039765-1dbc393e-967e-4ad5-ae15-26442615c684.png)
 ![6c295617-3f95-48c2-a4e3-23e4004bbca2](https://user-images.githubusercontent.com/47371845/201025421-1df22394-b8e2-49c6-bdb7-44b210b84973.png)
+![25f1d01f-1d51-449e-abd5-867f2caa90d9](https://user-images.githubusercontent.com/47371845/201040120-6122d7fe-892c-41b5-a595-19eea447f7ec.png)
+
 
