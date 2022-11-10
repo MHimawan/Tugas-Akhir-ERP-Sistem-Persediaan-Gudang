@@ -35,5 +35,7 @@ and put `http://127.0.0.1:8000/` in your browser.
 
 #### :arrow_right: Login Default
 username: `superadmin` password: `12345678`
+<br>
 username: `admin` password: `12345678`
+<br>
 username: `operator` password: `12345678`
