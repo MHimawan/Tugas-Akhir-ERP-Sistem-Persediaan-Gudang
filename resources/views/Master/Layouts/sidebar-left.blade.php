@@ -55,9 +55,10 @@
                  @if($getMenu > 0)
                  <?php
                     $submenu = SubmenuModel::where('menu_id', '=', $m->menu_id)->orderBy('submenu_sort', 'ASC')->get();
+                    $checkMenu = SubmenuModel::join('tbl_menu', 'tbl_menu.menu_id', '=', 'tbl_submenu.menu_id')->select()->where(array('tbl_menu.menu_judul' => $m->menu_judul, 'tbl_submenu.submenu_judul' => $title))->count();
                     ?>
-                 <li class="slide">
-                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)">
+                <li class="slide {{ $checkMenu > 0 ? 'is-expanded' : '' }}">
+                     <a class="side-menu__item {{ $checkMenu > 0 ? 'active' : '' }}" data-bs-toggle="slide" href="javascript:void(0)">
                          <i class="side-menu__icon fe fe-{{$m->menu_icon}}"></i>
                          <span class="side-menu__label">{{$m->menu_judul}}</span><i class="angle fe fe-chevron-right"></i></a>
                      <ul class="slide-menu">

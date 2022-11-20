@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\JenisController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\MerkController;
+use App\Http\Controllers\Admin\SatuanController;
 use App\Http\Controllers\Master\AksesController;
 use App\Http\Controllers\Master\MenuController;
 use App\Http\Controllers\Master\RoleController;
@@ -38,6 +41,27 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/', [DashboardController::class, 'index']);
         Route::get('/admin', [DashboardController::class, 'index']);
         Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+    });
+
+    Route::middleware(['checkRoleUser:/jenis,submenu'])->group(function () {
+        // Jenis
+        Route::resource('/admin/jenis', \App\Http\Controllers\Admin\JenisController::class);
+        Route::get('/admin/jenis/show/', [JenisController::class, 'show'])->name('jenis.getjenis');
+        Route::post('/admin/jenis/hapus', [JenisController::class, 'hapus']);
+    });
+
+    Route::middleware(['checkRoleUser:/satuan,submenu'])->group(function () {
+        // Satuan
+        Route::resource('/admin/satuan', \App\Http\Controllers\Admin\SatuanController::class);
+        Route::get('/admin/satuan/show/', [SatuanController::class, 'show'])->name('satuan.getsatuan');
+        Route::post('/admin/satuan/hapus', [SatuanController::class, 'hapus']);
+    });
+
+    Route::middleware(['checkRoleUser:/merk,submenu'])->group(function () {
+        // Merk
+        Route::resource('/admin/merk', \App\Http\Controllers\Admin\MerkController::class);
+        Route::get('/admin/merk/show/', [MerkController::class, 'show'])->name('merk.getmerk');
+        Route::post('/admin/merk/hapus', [MerkController::class, 'hapus']);
     });
 
     Route::middleware(['checkRoleUser:1,othermenu'])->group(function () {

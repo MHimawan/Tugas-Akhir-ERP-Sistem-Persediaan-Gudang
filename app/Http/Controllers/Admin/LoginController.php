@@ -15,7 +15,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        $data["title"] = "Login Admin";
+        $data["title"] = "Login Admin Panel";
         $data["web"] = WebModel::first();
         return view('Admin.Login.index', $data);
     }

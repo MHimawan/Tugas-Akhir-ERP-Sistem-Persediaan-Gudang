@@ -50,9 +50,9 @@ $web = WebModel::first();
 <body class="app sidebar-mini ltr light-mode">
 
     <!-- GLOBAL-LOADER -->
-    <div id="global-loader">
+    {{-- <div id="global-loader">
         <img src="{{url('/assets/images/loader.svg')}}" class="loader-img" alt="Loader">
-    </div>
+    </div> --}}
     <!-- /GLOBAL-LOADER -->
 
     <!-- PAGE -->
