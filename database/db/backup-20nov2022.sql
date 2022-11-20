@@ -43,7 +43,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
@@ -58,7 +58,8 @@ insert  into `migrations`(`id`,`migration`,`batch`) values
 (8,'2022_11_08_024215_create_tbl_web',1),
 (9,'2022_11_15_131148_create_tbl_jenis',2),
 (10,'2022_11_15_173700_create_tbl_satuan',3),
-(11,'2022_11_15_180434_create_tbl_merk',4);
+(11,'2022_11_15_180434_create_tbl_merk',4),
+(12,'2022_11_16_120018_create_tbl_appreance',5);
 
 /*Table structure for table `personal_access_tokens` */
 
@@ -198,6 +199,24 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (221,NULL,NULL,'4','1','delete','2022-11-15 18:13:45','2022-11-15 18:13:45'),
 (222,NULL,NULL,'5','1','delete','2022-11-15 18:13:45','2022-11-15 18:13:45'),
 (223,NULL,NULL,'6','1','delete','2022-11-15 18:13:45','2022-11-15 18:13:45');
+
+/*Table structure for table `tbl_appreance` */
+
+DROP TABLE IF EXISTS `tbl_appreance`;
+
+CREATE TABLE `tbl_appreance` (
+  `appreance_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `appreance_layout` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `appreance_theme` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `appreance_menu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `appreance_header` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`appreance_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `tbl_appreance` */
 
 /*Table structure for table `tbl_jenis` */
 

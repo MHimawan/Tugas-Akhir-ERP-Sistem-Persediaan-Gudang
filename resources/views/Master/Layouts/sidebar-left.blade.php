@@ -14,6 +14,13 @@
          <div class="side-header">
              <a class="header-brand1" href="{{url('/admin')}}">
                  @if($web->web_logo == '' || $web->web_logo == 'laravel.svg')
+                 <img src="{{url('/assets/default/web/laravel.svg')}}" height="40px" class="header-brand-img toggle-logo" alt="logo">
+                 <div class="header-brand-img desktop-logo">
+                     <div class="d-flex align-items-center">
+                         <img src="{{url('/assets/default/web/laravel.svg')}}" height="40px" class="me-1" alt="logo">
+                         <h4 class="fw-bold mt-4 text-white text-uppercase text-truncate">{{$web->web_nama}}</h4>
+                     </div>
+                 </div>
                  <img src="{{url('/assets/default/web/laravel.svg')}}" height="40px" class="header-brand-img light-logo" alt="logo">
                  <div class="header-brand-img light-logo1">
                      <div class="d-flex align-items-center">
@@ -22,6 +29,13 @@
                      </div>
                  </div>
                  @else
+                 <img src="{{asset('storage/web/' . $web->web_logo)}}" height="40px" class="header-brand-img toggle-logo" alt="logo">
+                 <div class="header-brand-img desktop-logo">
+                     <div class="d-flex align-items-center">
+                         <img src="{{asset('storage/web/' . $web->web_logo)}}" height="40px" class="me-1" alt="logo">
+                         <h4 class="fw-bold mt-4 text-white text-uppercase text-truncate">{{$web->web_nama}}</h4>
+                     </div>
+                 </div>
                  <img src="{{asset('storage/web/' . $web->web_logo)}}" height="40px" class="header-brand-img light-logo" alt="logo">
                  <div class="header-brand-img light-logo1">
                      <div class="d-flex align-items-center">
@@ -57,8 +71,8 @@
                     $submenu = SubmenuModel::where('menu_id', '=', $m->menu_id)->orderBy('submenu_sort', 'ASC')->get();
                     $checkMenu = SubmenuModel::join('tbl_menu', 'tbl_menu.menu_id', '=', 'tbl_submenu.menu_id')->select()->where(array('tbl_menu.menu_judul' => $m->menu_judul, 'tbl_submenu.submenu_judul' => $title))->count();
                     ?>
-                <li class="slide {{ $checkMenu > 0 ? 'is-expanded' : '' }}">
-                     <a class="side-menu__item {{ $checkMenu > 0 ? 'active' : '' }}" data-bs-toggle="slide" href="javascript:void(0)">
+                 <li class="slide {{$checkMenu > 0 ? 'is-expanded' : ''}}">
+                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)">
                          <i class="side-menu__icon fe fe-{{$m->menu_icon}}"></i>
                          <span class="side-menu__label">{{$m->menu_judul}}</span><i class="angle fe fe-chevron-right"></i></a>
                      <ul class="slide-menu">

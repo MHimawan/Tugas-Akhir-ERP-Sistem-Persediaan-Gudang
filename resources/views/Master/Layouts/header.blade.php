@@ -4,21 +4,33 @@
         <div class="d-flex">
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
             <!-- sidebar-toggle-->
-            <a class="logo-horizontal d-flex justify-content-center" href="{{url('/')}}">
+            <a class="logo-horizontal" href="{{url('/')}}">
+                <div class="header-brand-img desktop-logo">
+                    <div class="d-flex justify-content-center align-items-center">
+                        @if($web->web_logo == '' || $web->web_logo == 'laravel.svg')
+                        <img src="{{url('/assets/default/web/laravel.svg')}}" height="40px" class="me-1" alt="logo">
+                        @else
+                        <img src="{{asset('storage/web/' . $web->web_logo)}}" height="40px" class="me-1" alt="logo">
+                        @endif
+                        <h4 class="fw-bold mt-4 text-white text-uppercase text-truncate">{{$web->web_nama}}</h4>
+                    </div>
+                </div>
                 <div class="header-brand-img light-logo1">
-                    <div class="d-flex align-items-center">
+                    <div class="d-flex justify-content-center align-items-center">
                         @if($web->web_logo == '' || $web->web_logo == 'laravel.svg')
                         <img src="{{url('/assets/default/web/laravel.svg')}}" height="40px" class="me-1" alt="logo">
                         @else
                         <img src="{{asset('storage/web/' . $web->web_logo)}}" height="40px" class="me-1" alt="logo">
                         @endif
                         <h4 class="fw-bold mt-4 text-black text-uppercase text-truncate">{{$web->web_nama}}</h4>
-
                     </div>
                 </div>
             </a>
             <!-- LOGO -->
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
+                <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fe fe-more-vertical"></span>
+                </button>
                 <div class="navbar navbar-collapse responsive-navbar p-0">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                         <div class="d-flex order-lg-2">
@@ -105,6 +117,9 @@
                                     <div class="dropdown-divider m-0"></div>
                                     <a class="dropdown-item" href="{{url('/admin/profile')}}/{{Session::get('user')->user_id}}">
                                         <i class="dropdown-icon fe fe-user"></i> Profile
+                                    </a>
+                                    <a class="dropdown-item" href="{{url('/admin/appreance')}}">
+                                        <i class="dropdown-icon fe fe-layout"></i> Tampilan / Tema
                                     </a>
                                     <a class="dropdown-item" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalLogout">
                                         <i class="dropdown-icon fe fe-log-out"></i> Log out

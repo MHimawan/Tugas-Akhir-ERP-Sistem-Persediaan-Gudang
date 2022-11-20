@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MerkController;
 use App\Http\Controllers\Admin\SatuanController;
 use App\Http\Controllers\Master\AksesController;
+use App\Http\Controllers\Master\AppreanceController;
 use App\Http\Controllers\Master\MenuController;
 use App\Http\Controllers\Master\RoleController;
 use App\Http\Controllers\Master\UserController;
@@ -36,6 +37,8 @@ Route::group(['middleware' => 'userlogin'], function () {
     Route::get('/admin/profile/{user}', [UserController::class, 'profile']);
     Route::post('/admin/updatePassword/{user}', [UserController::class, 'updatePassword']);
     Route::post('/admin/updateProfile/{user}', [UserController::class, 'updateProfile']);
+    Route::get('/admin/appreance/', [AppreanceController::class, 'index']);
+    Route::post('/admin/appreance/{setting}', [AppreanceController::class, 'update']);
 
     Route::middleware(['checkRoleUser:/dashboard,menu'])->group(function () {
         Route::get('/', [DashboardController::class, 'index']);

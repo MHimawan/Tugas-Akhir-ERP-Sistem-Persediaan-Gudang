@@ -4,10 +4,12 @@
 <?php
 
 use App\Http\Controllers\Admin\LoginController;
+use App\Models\Admin\AppreanceModel;
 use App\Models\Admin\WebModel;
 use Illuminate\Support\Facades\Session;
 
 $web = WebModel::first();
+$appreance = AppreanceModel::where('user_id', '=', Session::get('user')->user_id)->first();
 ?>
 
 <head>
@@ -19,6 +21,7 @@ $web = WebModel::first();
     <meta name="description" content="{{$web->web_deskripsi}}">
     <meta name="author" content="{{$web->web_nama}}">
     <meta name="keywords" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- FAVICON -->
     @if($web->web_logo == '' || $web->web_logo == 'laravel.svg')
@@ -47,12 +50,16 @@ $web = WebModel::first();
 
 </head>
 
+@if($appreance != '')
+<body class="app ltr {{$appreance->appreance_layout}} {{$appreance->appreance_theme}} {{$appreance->appreance_menu}} {{$appreance->appreance_header}}">
+@else
 <body class="app sidebar-mini ltr light-mode">
+@endif
 
     <!-- GLOBAL-LOADER -->
-    {{-- <div id="global-loader">
+    <div id="global-loader" class="{{$appreance->appreance_theme == 'dark-mode' ? 'bg-dark' : ''}}">
         <img src="{{url('/assets/images/loader.svg')}}" class="loader-img" alt="Loader">
-    </div> --}}
+    </div>
     <!-- /GLOBAL-LOADER -->
 
     <!-- PAGE -->
