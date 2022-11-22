@@ -23,8 +23,8 @@
                 @foreach($data as $d)
 
                 <div class="text-center py-5 mb-4">
-                    @if($d->web_logo == '' || $d->web_logo == 'laravel.svg')
-                    <img src="{{ url('assets/default/web/laravel.svg') }}" alt="logo" width="120">
+                    @if($d->web_logo == '' || $d->web_logo == 'default.png')
+                    <img src="{{ url('assets/default/web/default.png') }}" alt="logo" width="120">
                     @else
                     <img src="{{asset('storage/web/' . $d->web_logo)}}" alt="logo" width="120">
                     @endif
