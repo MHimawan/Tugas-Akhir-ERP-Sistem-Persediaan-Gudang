@@ -7,8 +7,8 @@
             <a class="logo-horizontal" href="{{url('/')}}">
                 <div class="header-brand-img desktop-logo">
                     <div class="d-flex justify-content-center align-items-center">
-                        @if($web->web_logo == '' || $web->web_logo == 'laravel.svg')
-                        <img src="{{url('/assets/default/web/laravel.svg')}}" height="40px" class="me-1" alt="logo">
+                        @if($web->web_logo == '' || $web->web_logo == 'default.png')
+                        <img src="{{url('/assets/default/web/default.png')}}" height="40px" class="me-1" alt="logo">
                         @else
                         <img src="{{asset('storage/web/' . $web->web_logo)}}" height="40px" class="me-1" alt="logo">
                         @endif
@@ -17,8 +17,8 @@
                 </div>
                 <div class="header-brand-img light-logo1">
                     <div class="d-flex justify-content-center align-items-center">
-                        @if($web->web_logo == '' || $web->web_logo == 'laravel.svg')
-                        <img src="{{url('/assets/default/web/laravel.svg')}}" height="40px" class="me-1" alt="logo">
+                        @if($web->web_logo == '' || $web->web_logo == 'default.png')
+                        <img src="{{url('/assets/default/web/default.png')}}" height="40px" class="me-1" alt="logo">
                         @else
                         <img src="{{asset('storage/web/' . $web->web_logo)}}" height="40px" class="me-1" alt="logo">
                         @endif

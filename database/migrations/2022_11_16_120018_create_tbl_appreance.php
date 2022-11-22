@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('appreance_theme')->nullable();
             $table->string('appreance_menu')->nullable();
             $table->string('appreance_header')->nullable();
+            $table->string('appreance_sidestyle')->nullable();
             $table->timestamps();
         });
     }

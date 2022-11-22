@@ -15,6 +15,7 @@ class AppreanceModel extends Model
         'appreance_layout',
         'appreance_theme',
         'appreance_menu',
-        'appreance_header'
+        'appreance_header',
+        'appreance_sidestyle'
     ]; 
 }

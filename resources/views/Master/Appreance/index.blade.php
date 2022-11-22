@@ -248,10 +248,59 @@
             </form>
         </div>
     </div>
-</div>
+    @if($data != '')
+    <div class="col-md-6 {{$data->appreance_layout == 'sidebar-mini' ? '' : 'd-none'}}">
+        @else
+        <div class="col-md-6">
+            @endif
+            <div class="card mb-5">
+                <div class="card-header justify-content-between">
+                    <h3 class="card-title">Side Menu Style</h3>
+                </div>
+                <form action="{{url('admin/appreance/sidestyle')}}" method="POST">
+                    @csrf
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="selectgroup selectgroup-pills d-flex justify-content-center">
+                                <label class="selectgroup-item">
+                                    @if($data != '')
+                                    <input type="radio" name="sidestyle" value="default-menu" class="selectgroup-input" {{$data->appreance_sidestyle == 'default-menu' ? 'checked' : ''}}>
+                                    @else
+                                    <input type="radio" name="sidestyle" value="default-menu" class="selectgroup-input" checked>
+                                    @endif
+                                    <span class="selectgroup-button">
+                                        <div>
+                                            <i class="fe fe-layout fs-40 d-block my-4"></i>
+                                            Default Menu
+                                        </div>
+                                    </span>
+                                </label>
+                                <label class="selectgroup-item">
+                                    @if($data != '')
+                                    <input type="radio" name="sidestyle" value="sidenav-toggled" class="selectgroup-input" {{$data->appreance_sidestyle == 'sidenav-toggled' ? 'checked' : ''}}>
+                                    @else
+                                    <input type="radio" name="sidestyle" value="sidenav-toggled" class="selectgroup-input">
+                                    @endif
+                                    <span class="selectgroup-button">
+                                        <div>
+                                            <i class="fe fe-layout fs-40 d-block my-4"></i>
+                                            Icon Overlay
+                                        </div>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-center">
+                        <button type="submit" class="btn btn-success">Atur Tampilan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-@endsection
+    @endsection
 
-@section('scripts')
+    @section('scripts')
 
-@endsection
+    @endsection

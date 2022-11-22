@@ -5,8 +5,8 @@
 <div class="container-login100">
     <div class="wrap-login100 p-6">
         <div class="d-flex justify-content-center align-items-center">
-            @if($web->web_logo == '' || $web->web_logo == 'laravel.svg')
-            <img src="{{url('/assets/default/web/laravel.svg')}}" height="75px" class="" alt="logo">
+            @if($web->web_logo == '' || $web->web_logo == 'default.png')
+            <img src="{{url('/assets/default/web/default.png')}}" height="75px" class="" alt="logo">
             @else
             <img src="{{asset('storage/web/' . $web->web_logo)}}" height="75px" class="" alt="logo">
             @endif

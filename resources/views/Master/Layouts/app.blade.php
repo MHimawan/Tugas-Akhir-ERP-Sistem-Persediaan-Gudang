@@ -24,8 +24,8 @@ $appreance = AppreanceModel::where('user_id', '=', Session::get('user')->user_id
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- FAVICON -->
-    @if($web->web_logo == '' || $web->web_logo == 'laravel.svg')
-    <link rel="shortcut icon" type="image/x-icon" href="{{url('/assets/default/web/laravel.svg')}}" />
+    @if($web->web_logo == '' || $web->web_logo == 'default.png')
+    <link rel="shortcut icon" type="image/x-icon" href="{{url('/assets/default/web/default.png')}}" />
     @else
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('storage/web/' . $web->web_logo)}}" />
     @endif
@@ -51,7 +51,7 @@ $appreance = AppreanceModel::where('user_id', '=', Session::get('user')->user_id
 </head>
 
 @if($appreance != '')
-<body class="app ltr {{$appreance->appreance_layout}} {{$appreance->appreance_theme}} {{$appreance->appreance_menu}} {{$appreance->appreance_header}}">
+<body class="app ltr {{$appreance->appreance_layout}} {{$appreance->appreance_theme}} {{$appreance->appreance_menu}} {{$appreance->appreance_header}} {{$appreance->appreance_sidestyle}}">
 @else
 <body class="app sidebar-mini ltr light-mode">
 @endif

@@ -1,6 +1,6 @@
 /*
-SQLyog Professional v12.5.1 (64 bit)
-MySQL - 10.4.24-MariaDB : Database - db_inventoryweb
+SQLyog Professional
+MySQL - 10.4.22-MariaDB : Database - db_inventoryweb
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 10.4.24-MariaDB : Database - db_inventoryweb
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_inventoryweb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_inventoryweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `db_inventoryweb`;
 
@@ -211,12 +211,16 @@ CREATE TABLE `tbl_appreance` (
   `appreance_theme` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `appreance_menu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `appreance_header` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `appreance_sidestyle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`appreance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_appreance` */
+
+insert  into `tbl_appreance`(`appreance_id`,`user_id`,`appreance_layout`,`appreance_theme`,`appreance_menu`,`appreance_header`,`appreance_sidestyle`,`created_at`,`updated_at`) values 
+(2,'1','sidebar-mini','light-mode','light-menu','header-light','default-menu','2022-11-22 09:45:47','2022-11-22 09:46:09');
 
 /*Table structure for table `tbl_jenis` */
 
@@ -394,7 +398,7 @@ CREATE TABLE `tbl_web` (
 /*Data for the table `tbl_web` */
 
 insert  into `tbl_web`(`web_id`,`web_nama`,`web_logo`,`web_deskripsi`,`created_at`,`updated_at`) values 
-(1,'Inventoryweb','8dQvNHJQig4Xkjf5V8VJR94pABmO5Icu0yfnZOx0.png','Mengelola Data Barang Masuk & Barang Keluar','2022-11-15 10:51:04','2022-11-15 10:55:19');
+(1,'Inventoryweb','default.png','Mengelola Data Barang Masuk & Barang Keluar','2022-11-15 10:51:04','2022-11-22 09:41:39');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

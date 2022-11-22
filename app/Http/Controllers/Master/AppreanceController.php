@@ -46,7 +46,12 @@ class AppreanceController extends Controller
                 AppreanceModel::where('user_id', Session::get('user')->user_id)->update([
                     'appreance_header' => $request->header
                 ]);
+            }else if ($setting == 'sidestyle') {
+                AppreanceModel::where('user_id', Session::get('user')->user_id)->update([
+                    'appreance_sidestyle' => $request->sidestyle
+                ]);
             }
+
         } else {
             if ($setting == 'theme') {
                 if ($request->theme == 'light-mode') {
@@ -56,6 +61,7 @@ class AppreanceController extends Controller
                         'appreance_theme' => 'light-mode',
                         'appreance_menu' => 'light-menu',
                         'appreance_header' => 'header-light',
+                        'appreance_sidestyle' => 'default-menu'
                     ]);
                 } else if ($request->theme == 'dark-mode') {
                     AppreanceModel::create([
@@ -64,6 +70,7 @@ class AppreanceController extends Controller
                         'appreance_theme' => 'dark-mode',
                         'appreance_menu' => 'dark-menu',
                         'appreance_header' => 'header-dark',
+                        'appreance_sidestyle' => 'default-menu'
                     ]);
                 }
             } else {
@@ -73,6 +80,7 @@ class AppreanceController extends Controller
                     'appreance_theme' => $setting == 'theme' ? $request->theme : 'light-mode',
                     'appreance_menu' => $setting == 'menu' ? $request->menu : 'light-menu',
                     'appreance_header' => $setting == 'header' ? $request->header : 'header-light',
+                    'appreance_sidestyle' => $setting == 'sidestyle' ? $request->sidestyle : 'default-menu',
                 ]);
             }
         }
