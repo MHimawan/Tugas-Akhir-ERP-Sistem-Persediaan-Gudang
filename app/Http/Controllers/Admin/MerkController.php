@@ -46,7 +46,7 @@ class MerkController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function proses_tambah(Request $request)
     {
         $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->merk)));
 
@@ -57,43 +57,30 @@ class MerkController extends Controller
             'merk_keterangan'   => $request->ket,
         ]);
 
-        $data['title'] = "Merk";
-        Session::flash('status', 'success');
-        Session::flash('msg', 'Berhasil ditambah!');
-
-        //redirect to index
-        return redirect()->route('merk.index')->with($data);
+        return response()->json(['success' => 'Berhasil']);
     }
 
-    public function update(Request $request, MerkModel $merk)
+    public function proses_ubah(Request $request, MerkModel $merk)
     {
-        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->merkU)));
+        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->merk)));
 
         //update data
         $merk->update([
-            'merk_nama' => $request->merkU,
+            'merk_nama' => $request->merk,
             'merk_slug' => $slug,
-            'merk_keterangan'  => $request->ketU,
+            'merk_keterangan'  => $request->ket,
         ]);
 
-        $data['title'] = "Merk";
-        Session::flash('status', 'success');
-        Session::flash('msg', 'Berhasil diubah!');
-
-        //redirect to index
-        return redirect()->route('merk.index')->with($data);
+        return response()->json(['success' => 'Berhasil']);
     }
 
-    public function hapus(Request $request)
+    
+    public function proses_hapus(Request $request, MerkModel $merk)
     {
-        //delete data
-        MerkModel::findOrFail($request->idmerk)->delete();
+        //delete
+        $merk->delete();
 
-        $data['title'] = "Merk";
-        Session::flash('status', 'success');
-        Session::flash('msg', 'Berhasil dihapus!');
-
-        //redirect to index
-        return redirect()->route('merk.index')->with($data);
+        return response()->json(['success' => 'Berhasil']);
     }
+
 }

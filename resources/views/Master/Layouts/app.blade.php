@@ -18,223 +18,270 @@ $appreance = AppreanceModel::where('user_id', '=', Session::get('user')->user_id
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{{$web->web_deskripsi}}">
-    <meta name="author" content="{{$web->web_nama}}">
+    <meta name="description" content="{{ $web->web_deskripsi }}">
+    <meta name="author" content="{{ $web->web_nama }}">
     <meta name="keywords" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- FAVICON -->
-    @if($web->web_logo == '' || $web->web_logo == 'default.png')
-    <link rel="shortcut icon" type="image/x-icon" href="{{url('/assets/default/web/default.png')}}" />
+    @if ($web->web_logo == '' || $web->web_logo == 'default.png')
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url('/assets/default/web/default.png') }}" />
     @else
-    <link rel="shortcut icon" type="image/x-icon" href="{{asset('storage/web/' . $web->web_logo)}}" />
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('storage/web/' . $web->web_logo) }}" />
     @endif
 
     <!-- TITLE -->
-    <title>{{$title}} | {{$web->web_nama}}</title>
+    <title>{{ $title }} | {{ $web->web_nama }}</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="{{ url('/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
 
     <!-- STYLE CSS -->
-    <link href="{{url('/assets/css/style.css')}}" rel="stylesheet" />
-    <link href="{{url('/assets/css/dark-style.css')}}" rel="stylesheet" />
-    <link href="{{url('/assets/css/transparent-style.css')}}" rel="stylesheet">
-    <link href="{{url('/assets/css/skin-modes.css')}}" rel="stylesheet" />
+    <link href="{{ url('/assets/css/style.css') }}" rel="stylesheet" />
+    <link href="{{ url('/assets/css/dark-style.css') }}" rel="stylesheet" />
+    <link href="{{ url('/assets/css/transparent-style.css') }}" rel="stylesheet">
+    <link href="{{ url('/assets/css/skin-modes.css') }}" rel="stylesheet" />
 
     <!--- FONT-ICONS CSS -->
-    <link href="{{url('/assets/css/icons.css')}}" rel="stylesheet" />
+    <link href="{{ url('/assets/css/icons.css') }}" rel="stylesheet" />
 
     <!-- COLOR SKIN CSS -->
-    <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{url('/assets/colors/color1.css')}}" />
+    <link id="theme" rel="stylesheet" type="text/css" media="all"
+        href="{{ url('/assets/colors/color1.css') }}" />
+    <style>
+        modal.fade {
+            z-index: 1050 !important;
+        }
 
+        .datepicker {
+            z-index: 20000000 !important
+        }
+    </style>
 </head>
 
-@if($appreance != '')
-<body class="app ltr {{$appreance->appreance_layout}} {{$appreance->appreance_theme}} {{$appreance->appreance_menu}} {{$appreance->appreance_header}} {{$appreance->appreance_sidestyle}}">
-@else
-<body class="app sidebar-mini ltr light-mode">
+@if ($appreance != '')
+
+    <body
+        class="app ltr {{ $appreance->appreance_layout }} {{ $appreance->appreance_theme }} {{ $appreance->appreance_menu }} {{ $appreance->appreance_header }} {{ $appreance->appreance_sidestyle }}">
+    @else
+
+        <body class="app sidebar-mini ltr light-mode">
 @endif
 
-    <!-- GLOBAL-LOADER -->
-    @if($appreance != '')
-    <div id="global-loader" class="{{$appreance->appreance_theme == 'dark-mode' ? 'bg-dark' : ''}}">
-        @else
+<!-- GLOBAL-LOADER -->
+@if ($appreance != '')
+    <div id="global-loader" class="{{ $appreance->appreance_theme == 'dark-mode' ? 'bg-dark' : '' }}">
+    @else
         <div id="global-loader">
-        @endif
-        <img src="{{url('/assets/images/loader.svg')}}" class="loader-img" alt="Loader">
-    </div>
-    <!-- /GLOBAL-LOADER -->
+@endif
+<img src="{{ url('/assets/images/loader.svg') }}" class="loader-img" alt="Loader">
+</div>
 
-    <!-- PAGE -->
-    <div class="page">
-        <div class="page-main">
+<!-- /GLOBAL-LOADER -->
 
-            <!-- APP HEADER -->
-            @include('Master.Layouts.header', ['web' => $web])
-            <!-- END APP HEADER -->
+<!-- PAGE -->
+<div class="page">
+    <div class="page-main">
 
-            <!-- SIDEBAR -->
-            @include('Master.Layouts.sidebar-left', ['web' => $web])
-            <!-- END SIDEBAR -->
+        <!-- APP HEADER -->
+        @include('Master.Layouts.header', ['web' => $web])
+        <!-- END APP HEADER -->
 
-            <!--app-content open-->
-            <div class="main-content app-content mt-0">
-                <div class="side-app">
+        <!-- SIDEBAR -->
+        @include('Master.Layouts.sidebar-left', ['web' => $web])
+        <!-- END SIDEBAR -->
 
-                    <!-- CONTAINER -->
-                    <div class="main-container container-fluid">
-                        @yield('content')
-                    </div>
-                    <!-- CONTAINER END -->
+        <!--app-content open-->
+        <div class="main-content app-content mt-0">
+            <div class="side-app">
+
+                <!-- CONTAINER -->
+                <div class="main-container container-fluid">
+                    @yield('content')
                 </div>
+                <!-- CONTAINER END -->
             </div>
-            <!--app-content close-->
-
         </div>
-
-        <!-- SIDEBAR RIGHT -->
-        <!-- (-) -->
-        <!-- END SIDEBAR RIGHT -->
-
-        <!-- FOOTER -->
-        @include('Master.Layouts.footer', ['web' => $web])
-        <!-- FOOTER END -->
+        <!--app-content close-->
 
     </div>
 
-    <!-- MODAL LOGOUT -->
-    <div class="modal fade" data-bs-backdrop="static" id="modalLogout">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content modal-content-demo">
-                <form method="GET" action="{{url('admin/logout')}}" name="myFormH" enctype="multipart/form-data">
-                    @csrf
-                    <div class="modal-body text-center p-4 pb-5">
-                        <button type="reset" aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
-                        <br>
-                        <i class="icon icon-exclamation fs-70 text-warning lh-1 my-5 d-inline-block"></i>
-                        <h3 class="mb-5">Yakin logout ?</h3>
-                        <button type="submit" class="btn btn-danger-light pd-x-25">Iya</button>
-                        <button type="reset" data-bs-dismiss="modal" class="btn btn-default pd-x-25">Batal</button>
-                    </div>
-                </form>
-            </div>
+    <!-- SIDEBAR RIGHT -->
+    <!-- (-) -->
+    <!-- END SIDEBAR RIGHT -->
+
+    <!-- FOOTER -->
+    @include('Master.Layouts.footer', ['web' => $web])
+    <!-- FOOTER END -->
+
+</div>
+
+<!-- MODAL LOGOUT -->
+<div class="modal fade" data-bs-backdrop="static" id="modalLogout">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content modal-content-demo">
+            <form method="GET" action="{{ url('admin/logout') }}" name="myFormH" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body text-center p-4 pb-5">
+                    <button type="reset" aria-label="Close" class="btn-close position-absolute"
+                        data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
+                    <br>
+                    <i class="icon icon-exclamation fs-70 text-warning lh-1 my-5 d-inline-block"></i>
+                    <h3 class="mb-5">Yakin logout ?</h3>
+                    <button type="submit" class="btn btn-danger-light pd-x-25">Iya</button>
+                    <button type="reset" data-bs-dismiss="modal" class="btn btn-default pd-x-25">Batal</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-    <!-- BACK-TO-TOP -->
-    <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
+<!-- BACK-TO-TOP -->
+<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-    <!-- JQUERY JS -->
-    <script src="{{url('/assets/js/jquery.min.js')}}"></script>
+<!-- JQUERY JS -->
+<script src="{{ url('/assets/js/jquery.min.js') }}"></script>
 
-    <!-- BOOTSTRAP JS -->
-    <script src="{{url('/assets/plugins/bootstrap/js/popper.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+<!-- BOOTSTRAP JS -->
+<script src="{{ url('/assets/plugins/bootstrap/js/popper.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 
-    <!-- SPARKLINE JS-->
-    <script src="{{url('/assets/js/jquery.sparkline.min.js')}}"></script>
+<!-- Sticky js -->
+<script src="{{ url('/assets/js/sticky.js') }}"></script>
 
-    <!-- Sticky js -->
-    <script src="{{url('/assets/js/sticky.js')}}"></script>
+<!-- INPUT MASK JS-->
+<script src="{{ url('/assets/plugins/input-mask/jquery.mask.min.js') }}"></script>
 
-    <!-- CHART-CIRCLE JS-->
-    <script src="{{url('/assets/js/circle-progress.min.js')}}"></script>
+<!-- SIDE-MENU JS-->
+<script src="{{ url('/assets/plugins/sidemenu/sidemenu.js') }}"></script>
 
-    <!-- PIETY CHART JS-->
-    <script src="{{url('/assets/plugins/peitychart/jquery.peity.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/peitychart/peitychart.init.js')}}"></script>
+<!-- SIDEBAR JS -->
+<script src="{{ url('/assets/plugins/sidebar/sidebar.js') }}"></script>
 
-    <!-- SIDEBAR JS -->
-    <script src="{{url('/assets/plugins/sidebar/sidebar.js')}}"></script>
+<!-- Perfect SCROLLBAR JS-->
+<script src="{{ url('/assets/plugins/p-scroll/perfect-scrollbar.js') }}"></script>
+<script src="{{ url('/assets/plugins/p-scroll/pscroll.js') }}"></script>
+<script src="{{ url('/assets/plugins/p-scroll/pscroll-1.js') }}"></script>
 
-    <!-- Perfect SCROLLBAR JS-->
-    <script src="{{url('/assets/plugins/p-scroll/perfect-scrollbar.js')}}"></script>
-    <script src="{{url('/assets/plugins/p-scroll/pscroll.js')}}"></script>
-    <script src="{{url('/assets/plugins/p-scroll/pscroll-1.js')}}"></script>
+<!-- FILE UPLOADES JS -->
+<script src="{{ url('/assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+<script src="{{ url('/assets/plugins/fileuploads/js/file-upload.js') }}"></script>
 
-    <!-- SWEET-ALERT JS -->
-    <script src="{{url('/assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
-    <script src="{{url('/assets/js/sweet-alert.js')}}"></script>
+<!-- INTERNAL Bootstrap-Datepicker js-->
+<script src="{{ url('/assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
-    <!-- INTERNAL CHARTJS CHART JS-->
-    <script src="{{url('/assets/plugins/chart/Chart.bundle.js')}}"></script>
-    <script src="{{url('/assets/plugins/chart/rounded-barchart.js')}}"></script>
-    <script src="{{url('/assets/plugins/chart/utils.js')}}"></script>
+<!-- SELECT2 JS -->
+<script src="{{ url('/assets/plugins/select2/select2.full.min.js') }}"></script>
+<script src="{{ url('/assets/js/select2.js') }}"></script>
 
-    <!-- INTERNAL SELECT2 JS -->
-    <script src="{{url('/assets/plugins/select2/select2.full.min.js')}}"></script>
-    <script src="{{url('/assets/js/select2.js')}}"></script>
+<!-- BOOTSTRAP-DATERANGEPICKER JS -->
+<script src="{{ url('/assets/plugins/bootstrap-daterangepicker/moment.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 
-    <!-- DATA TABLE JS-->
-    <script src="{{url('/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/js/dataTables.bootstrap5.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/js/dataTables.buttons.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/js/buttons.bootstrap5.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/js/jszip.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/pdfmake/pdfmake.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/pdfmake/vfs_fonts.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/js/buttons.html5.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/js/buttons.print.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/datatable/responsive.bootstrap5.min.js')}}"></script>
-    <script src="{{url('/assets/js/table-data.js')}}"></script>
+<!-- INTERNAL Bootstrap-Datepicker js-->
+<script src="{{ url('/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
 
-    <!-- INTERNAL APEXCHART JS -->
-    <script src="{{url('/assets/js/apexcharts.js')}}"></script>
-    <script src="{{url('/assets/plugins/apexchart/irregular-data-series.js')}}"></script>
+<!-- INTERNAL Sumoselect js-->
+<script src="{{ url('/assets/plugins/sumoselect/jquery.sumoselect.js') }}"></script>
 
-    <!-- C3 CHART JS -->
-    <script src="{{url('/assets/plugins/charts-c3/d3.v5.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/charts-c3/c3-chart.js')}}"></script>
+<!-- TIMEPICKER JS -->
+<script src="{{ url('/assets/plugins/time-picker/jquery.timepicker.js') }}"></script>
+<script src="{{ url('/assets/plugins/time-picker/toggles.min.js') }}"></script>
 
-    <!-- CHART-DONUT JS -->
-    <script src="{{url('/assets/js/charts.js')}}"></script>
+<!-- INTERNAL intlTelInput js-->
+<script src="{{ url('/assets/plugins/intl-tel-input-master/intlTelInput.js') }}"></script>
+<script src="{{ url('/assets/plugins/intl-tel-input-master/country-select.js') }}"></script>
+<script src="{{ url('/assets/plugins/intl-tel-input-master/utils.js') }}"></script>
 
-    <!-- INTERNAL Flot JS -->
-    <script src="{{url('/assets/plugins/flot/jquery.flot.js')}}"></script>
-    <script src="{{url('/assets/plugins/flot/jquery.flot.fillbetween.js')}}"></script>
-    <script src="{{url('/assets/plugins/flot/chart.flot.sampledata.js')}}"></script>
-    <script src="{{url('/assets/plugins/flot/dashboard.sampledata.js')}}"></script>
+<!-- INTERNAL jquery transfer js-->
+<script src="{{ url('/assets/plugins/jQuerytransfer/jquery.transfer.js') }}"></script>
 
-    <!-- INTERNAL Vector js -->
-    <script src="{{url('/assets/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
-    <script src="{{url('/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<!-- INTERNAL multi js-->
+<script src="{{ url('/assets/plugins/multi/multi.min.js') }}"></script>
 
-    <!-- SIDE-MENU JS-->
-    <script src="{{url('/assets/plugins/sidemenu/sidemenu.js')}}"></script>
+<!-- DATEPICKER JS -->
+<script src="{{ url('/assets/plugins/date-picker/date-picker.js') }}"></script>
+<script src="{{ url('/assets/plugins/date-picker/jquery-ui.js') }}"></script>
+<script src="{{ url('/assets/plugins/input-mask/jquery.maskedinput.js') }}"></script>
 
-    <!-- INTERNAL INDEX JS -->
-    <script src="{{url('/assets/js/index1.js')}}"></script>
+<!-- COLOR PICKER JS -->
+<script src="{{ url('/assets/plugins/pickr-master/pickr.es5.min.js') }}"></script>
+<script src="{{ url('/assets/js/picker.js') }}"></script>
 
-    <!-- Color Theme js -->
-    <script src="{{url('/assets/js/themeColors.js')}}"></script>
+<!-- MULTI SELECT JS-->
+<script src="{{ url('/assets/plugins/multipleselect/multiple-select.js') }}"></script>
+<script src="{{ url('/assets/plugins/multipleselect/multi-select.js') }}"></script>
 
-    <!-- CUSTOM JS -->
-    <script src="{{url('/assets/js/custom.js')}}"></script>
+<!-- SWEET-ALERT JS -->
+<script src="{{ url('/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+<script src="{{ url('/assets/js/sweet-alert.js') }}"></script>
 
-    @if(Session::get('status') == 'success')
+<!-- INTERNAL CHARTJS CHART JS-->
+<script src="{{ url('/assets/plugins/chart/Chart.bundle.js') }}"></script>
+<script src="{{ url('/assets/plugins/chart/rounded-barchart.js') }}"></script>
+<script src="{{ url('/assets/plugins/chart/utils.js') }}"></script>
+
+<!-- DATA TABLE JS-->
+<script src="{{ url('/assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/js/dataTables.bootstrap5.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/js/buttons.bootstrap5.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/js/jszip.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/js/buttons.html5.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/js/buttons.print.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/js/buttons.colVis.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
+<script src="{{ url('/assets/plugins/datatable/responsive.bootstrap5.min.js') }}"></script>
+<script src="{{ url('/assets/js/table-data.js') }}"></script>
+
+
+<!-- INTERNAL INDEX JS -->
+<script src="{{ url('/assets/js/index1.js') }}"></script>
+
+<!-- Color Theme js -->
+<script src="{{ url('/assets/js/themeColors.js') }}"></script>
+
+<!-- CUSTOM JS -->
+<script src="{{ url('/assets/js/custom.js') }}"></script>
+
+<script>
+    $(document).ready(function() {
+        // BOOTSTRAP DATEPICKER
+        $('.datepicker-date').bootstrapdatepicker({
+            format: "yyyy-mm-dd",
+            viewMode: "date",
+            autoclose: true,
+        })
+    })
+</script>
+
+@if (Session::get('status') == 'success')
     <script>
         $(document).ready(function() {
             swal({
-                title: "{{Session::get('msg')}}",
+                title: "{{ Session::get('msg') }}",
                 type: "success"
             });
         });
     </script>
-    @elseif(Session::get('status') == 'error')
+@elseif(Session::get('status') == 'error')
     <script>
         $(document).ready(function() {
             swal({
-                title: "{{Session::get('msg')}}",
+                title: "{{ Session::get('msg') }}",
                 type: "error"
             });
         });
     </script>
-    @endif
+@endif
 
-    @yield('scripts')
+@yield('scripts')
+@yield('formTambahJS')
+@yield('formEditJS')
+@yield('formHapusJS')
+@yield('formOtherJS')
 
 </body>
 

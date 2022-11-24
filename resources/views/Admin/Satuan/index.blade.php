@@ -48,7 +48,7 @@
 
 <script>
     function update(data) {
-        $("#myFormUpdate").attr("action", "{{url('/admin/satuan')}}/" + data.satuan_id);
+        $("input[name='idsatuanU']").val(data.satuan_id);
         $("input[name='satuanU']").val(data.satuan_nama.replace(/_/g, ' '));
         $("textarea[name='ketU']").val(data.satuan_keterangan.replace(/_/g, ' '));
     }
@@ -71,6 +71,12 @@
 
 @section('scripts')
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     var table;
     $(document).ready(function() {
         //datatables

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\JenisController;
+use App\Http\Controllers\Admin\JenisBarangController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\MerkController;
 use App\Http\Controllers\Admin\SatuanController;
@@ -46,25 +46,31 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::get('/admin/dashboard', [DashboardController::class, 'index']);
     });
 
-    Route::middleware(['checkRoleUser:/jenis,submenu'])->group(function () {
-        // Jenis
-        Route::resource('/admin/jenis', \App\Http\Controllers\Admin\JenisController::class);
-        Route::get('/admin/jenis/show/', [JenisController::class, 'show'])->name('jenis.getjenis');
-        Route::post('/admin/jenis/hapus', [JenisController::class, 'hapus']);
+    Route::middleware(['checkRoleUser:/jenisbarang,submenu'])->group(function () {
+        // Jenis Barang
+        Route::get('/admin/jenisbarang', [JenisBarangController::class, 'index']);
+        Route::get('/admin/jenisbarang/show/', [JenisBarangController::class, 'show'])->name('jenisbarang.getjenisbarang');
+        Route::post('/admin/jenisbarang/proses_tambah/', [JenisBarangController::class, 'proses_tambah'])->name('jenisbarang.store');
+        Route::post('/admin/jenisbarang/proses_ubah/{jenisbarang}', [JenisBarangController::class, 'proses_ubah']);
+        Route::post('/admin/jenisbarang/proses_hapus/{jenisbarang}', [JenisBarangController::class, 'proses_hapus']);
     });
 
     Route::middleware(['checkRoleUser:/satuan,submenu'])->group(function () {
         // Satuan
         Route::resource('/admin/satuan', \App\Http\Controllers\Admin\SatuanController::class);
         Route::get('/admin/satuan/show/', [SatuanController::class, 'show'])->name('satuan.getsatuan');
-        Route::post('/admin/satuan/hapus', [SatuanController::class, 'hapus']);
+        Route::post('/admin/satuan/proses_tambah/', [SatuanController::class, 'proses_tambah'])->name('satuan.store');
+        Route::post('/admin/satuan/proses_ubah/{satuan}', [SatuanController::class, 'proses_ubah']);
+        Route::post('/admin/satuan/proses_hapus/{satuan}', [SatuanController::class, 'proses_hapus']);
     });
 
     Route::middleware(['checkRoleUser:/merk,submenu'])->group(function () {
         // Merk
         Route::resource('/admin/merk', \App\Http\Controllers\Admin\MerkController::class);
         Route::get('/admin/merk/show/', [MerkController::class, 'show'])->name('merk.getmerk');
-        Route::post('/admin/merk/hapus', [MerkController::class, 'hapus']);
+        Route::post('/admin/merk/proses_tambah/', [MerkController::class, 'proses_tambah'])->name('merk.store');
+        Route::post('/admin/merk/proses_ubah/{merk}', [MerkController::class, 'proses_ubah']);
+        Route::post('/admin/merk/proses_hapus/{merk}', [MerkController::class, 'proses_hapus']);
     });
 
     Route::middleware(['checkRoleUser:1,othermenu'])->group(function () {

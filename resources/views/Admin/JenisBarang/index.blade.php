@@ -13,7 +13,6 @@
 </div>
 <!-- PAGE-HEADER END -->
 
-
 <!-- ROW -->
 <div class="row row-sm">
     <div class="col-lg-12">
@@ -29,7 +28,7 @@
                     <table id="table-1" width="100%" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
                             <th class="border-bottom-0" width="1%">No</th>
-                            <th class="border-bottom-0">Jenis</th>
+                            <th class="border-bottom-0">Jenis Barang</th>
                             <th class="border-bottom-0">Keterangan</th>
                             <th class="border-bottom-0" width="1%">Action</th>
                         </thead>
@@ -42,20 +41,20 @@
 </div>
 <!-- END ROW -->
 
-@include('Admin.Jenis.tambah')
-@include('Admin.Jenis.edit')
-@include('Admin.Jenis.hapus')
+@include('Admin.JenisBarang.tambah')
+@include('Admin.JenisBarang.edit')
+@include('Admin.JenisBarang.hapus')
 
 <script>
     function update(data) {
-        $("#myFormUpdate").attr("action", "{{url('/admin/jenis')}}/" + data.jenis_id);
-        $("input[name='jenisU']").val(data.jenis_nama.replace(/_/g, ' '));
-        $("textarea[name='ketU']").val(data.jenis_keterangan.replace(/_/g, ' '));
+        $("input[name='idjenisbarangU']").val(data.jenisbarang_id);
+        $("input[name='jenisbarangU']").val(data.jenisbarang_nama.replace(/_/g, ' '));
+        $("textarea[name='ketU']").val(data.jenisbarang_ket.replace(/_/g, ' '));
     }
 
     function hapus(data) {
-        $("input[name='idjenis']").val(data.jenis_id);
-        $("#vjenis").html("jenis " + "<b>" + data.jenis_nama.replace(/_/g, ' ') + "</b>");
+        $("input[name='idjenisbarang']").val(data.jenisbarang_id);
+        $("#vjenisbarang").html("jenis " + "<b>" + data.jenisbarang_nama.replace(/_/g, ' ') + "</b>");
     }
 
     function validasi(judul, status) {
@@ -71,6 +70,12 @@
 
 @section('scripts')
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     var table;
     $(document).ready(function() {
         //datatables
@@ -89,7 +94,7 @@
             lengthChange: true,
 
             "ajax": {
-                "url": "{{route('jenis.getjenis')}}",
+                "url": "{{route('jenisbarang.getjenisbarang')}}",
             },
 
             "columns": [{
@@ -98,12 +103,12 @@
                     searchable: false
                 },
                 {
-                    data: 'jenis_nama',
-                    name: 'jenis_nama',
+                    data: 'jenisbarang_nama',
+                    name: 'jenisbarang_nama',
                 },
                 {
                     data: 'ket',
-                    name: 'jenis_keterangan',
+                    name: 'jenisbarang_ket',
                 },
                 {
                     data: 'action',
@@ -114,6 +119,7 @@
             ],
 
         });
+
     });
 </script>
 @endsection

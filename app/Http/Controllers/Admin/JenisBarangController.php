@@ -3,35 +3,35 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\SatuanModel;
+use App\Models\Admin\JenisBarangModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 use Yajra\DataTables\Facades\DataTables;
 
-class SatuanController extends Controller
+class JenisBarangController extends Controller
 {
     public function index()
     {
-        $data["title"] = "Satuan";
-        return view('Admin.Satuan.index', $data);
+        $data["title"] = "Jenis";
+        return view('Admin.JenisBarang.index', $data);
     }
 
     public function show(Request $request)
     {
         if ($request->ajax()) {
-            $data = SatuanModel::orderBy('satuan_id', 'DESC')->get();
-            return Datatables::of($data)
+            $data = JenisBarangModel::orderBy('jenisbarang_id', 'DESC')->get();
+            return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('ket', function ($row) {
-                    $ket = $row->satuan_keterangan == '' ? '-' : $row->satuan_keterangan;
+                    $ket = $row->jenisbarang_ket == '' ? '-' : $row->jenisbarang_ket;
 
                     return $ket;
                 })
                 ->addColumn('action', function ($row) {
                     $array = array(
-                        "satuan_id" => $row->satuan_id,
-                        "satuan_nama" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->satuan_nama)),
-                        "satuan_keterangan" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->satuan_keterangan))
+                        "jenisbarang_id" => $row->jenisbarang_id,
+                        "jenisbarang_nama" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->jenisbarang_nama)),
+                        "jenisbarang_ket" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->jenisbarang_ket)),
                     );
                     $button = '';
                     $button .= '
@@ -48,36 +48,37 @@ class SatuanController extends Controller
 
     public function proses_tambah(Request $request)
     {
-        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->satuan)));
+        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->jenisbarang)));
 
-        //insert data
-        SatuanModel::create([
-            'satuan_nama' => $request->satuan,
-            'satuan_slug' => $slug,
-            'satuan_keterangan'   => $request->ket,
+        //create
+        JenisBarangModel::create([
+            'jenisbarang_nama' => $request->jenisbarang,
+            'jenisbarang_slug'   => $slug,
+            'jenisbarang_ket' => $request->ket
         ]);
 
         return response()->json(['success' => 'Berhasil']);
     }
 
-    public function proses_ubah(Request $request, SatuanModel $satuan)
+    public function proses_ubah(Request $request, JenisBarangModel $jenisbarang)
     {
-        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->satuan)));
+        $slug = strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $request->jenisbarang)));
 
-        //update data
-        $satuan->update([
-            'satuan_nama' => $request->satuan,
-            'satuan_slug' => $slug,
-            'satuan_keterangan'  => $request->ket,
+        //update
+        $jenisbarang->update([
+            'jenisbarang_nama' => $request->jenisbarang,
+            'jenisbarang_slug'   => $slug,
+            'jenisbarang_ket' => $request->ket
         ]);
 
         return response()->json(['success' => 'Berhasil']);
     }
 
-    public function proses_hapus(Request $request, SatuanModel $satuan)
+    public function proses_hapus(Request $request, JenisBarangModel $jenisbarang)
     {
+        
         //delete
-        $satuan->delete();
+        $jenisbarang->delete();
 
         return response()->json(['success' => 'Berhasil']);
     }

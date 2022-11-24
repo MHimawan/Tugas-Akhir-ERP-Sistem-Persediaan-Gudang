@@ -43,7 +43,7 @@ use App\Models\Admin\SubmenuModel; ?>
                     @if($detailrole != '')
                     <div class="col-md-7 d-flex justify-content-end align-items-center">
                         <div>
-                            @if(Session::get('user')->role_slug != 'super-admin')
+                            @if(Session::get('user')->role_slug != $detailrole->role_slug)
                             <button  class="btn btn-gray me-2" onclick="unsetAll({{$detailrole->role_id}})">Non-aktifkan Semua Akses</button>
                             @else
                             <button disabled class="btn btn-gray me-2">Non-aktifkan Semua Akses</button>
@@ -313,7 +313,7 @@ use App\Models\Admin\SubmenuModel; ?>
                     <?php
                     $getView2 = AksesModel::where(array('othermenu_id' => 1, 'role_id' => $detailrole->role_id, 'akses_type' => 'view'))->first();
                     ?>
-                    @if(Session::get('user')->role_slug != 'super-admin')
+                    @if(Session::get('user')->role_slug != $detailrole->role_slug)
                     <label class="custom-switch form-switch mb-3">
                         @if($getView2 == '')
                         <input type="checkbox" onchange="addAkses('1', '{{$detailrole->role_id}}', 'othermenu', 'view')" class="custom-switch-input">
@@ -661,7 +661,7 @@ use App\Models\Admin\SubmenuModel; ?>
                                     @endif
                                 </td>
                             </tr>
-                            @if(Session::get('user')->role_slug != 'super-admin')
+                            @if(Session::get('user')->role_slug != $detailrole->role_slug)
                             <tr>
                                 <td>
                                     <span class="fw-bold">

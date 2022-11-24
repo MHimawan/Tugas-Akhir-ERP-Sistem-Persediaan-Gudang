@@ -4,6 +4,10 @@
         <div class="d-flex">
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
             <!-- sidebar-toggle-->
+            <!-- <a class="logo-horizontal d-flex justify-center" href="index.html">
+                <img src="../assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
+                <img src="../assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo">
+            </a> -->
             <a class="logo-horizontal" href="{{url('/')}}">
                 <div class="header-brand-img desktop-logo">
                     <div class="d-flex justify-content-center align-items-center">
@@ -28,12 +32,13 @@
             </a>
             <!-- LOGO -->
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
-                <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- SEARCH -->
+                <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fe fe-more-vertical"></span>
                 </button>
                 <div class="navbar navbar-collapse responsive-navbar p-0">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
-                        <div class="d-flex order-lg-2">
+                        <div class="d-flex justify-content-between order-lg-2">
                             <!-- Theme-Layout -->
                             <div class="dropdown d-flex">
                                 <a class="nav-link icon full-screen-link nav-link-bg">
@@ -101,6 +106,10 @@
                             <!-- SIDE-MENU -->
                             <div class="dropdown d-flex profile-1">
                                 <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
+                                    <div class="text-end">
+                                        <h5 class="text-dark mb-0 me-4 fs-14 fw-semibold">{{Session::get('user')->user_nmlengkap}}</h5>
+                                        <small class="text-muted me-4">{{Session::get('user')->role_title}}</small>
+                                    </div>
                                     @if(Session::get('user')->user_foto == 'undraw_profile.svg')
                                     <img src="{{url('/assets/default/users/undraw_profile.svg')}}" alt="profile-user" class="avatar  profile-user brround cover-image">
                                     @else
@@ -108,13 +117,13 @@
                                     @endif
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                    <div class="drop-heading">
+                                    <!-- <div class="drop-heading">
                                         <div class="text-center">
                                             <h5 class="text-dark mb-0 fs-14 fw-semibold">{{Session::get('user')->user_nmlengkap}}</h5>
                                             <small class="text-muted">{{Session::get('user')->role_title}}</small>
                                         </div>
-                                    </div>
-                                    <div class="dropdown-divider m-0"></div>
+                                    </div> -->
+                                    <!-- <div class="dropdown-divider m-0"></div> -->
                                     <a class="dropdown-item" href="{{url('/admin/profile')}}/{{Session::get('user')->user_id}}">
                                         <i class="dropdown-icon fe fe-user"></i> Profile
                                     </a>
