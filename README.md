@@ -38,6 +38,9 @@ Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash ad
 Buat Database `db_inventoryweb`
 #### :arrow_right: Config ENV
 Ubah file dari `env.development` jadi `.env`
+
+Setting `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD` yang ada di file `.env` sesuai Nama Database mysql kalian
+
 #### :arrow_right: Set Up
 Buka Terminal di proyek folder Anda dan jalankan perintah dibawah ini:
 ```
@@ -47,7 +50,7 @@ composer install
 php artisan storage:link
 ```
 #### :arrow_right: Import Database
-Import file database `db_inventoryweb` yang ada di folder `database/db` ke phpmyadmin 
+Import file database `db_inventoryweb.sql` yang ada di folder `database/db` ke phpmyadmin 
 
 #### :arrow_right: Jalankan Aplikasi
 ```
