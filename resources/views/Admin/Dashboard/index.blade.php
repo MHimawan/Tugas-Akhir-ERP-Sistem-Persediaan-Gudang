@@ -62,7 +62,7 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">0</h2>
+                        <h2 class="mb-0 number-font">{{count($barang)}}</h2>
                         <p class="text-white mb-0">Barang</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-package text-white fs-40 me-2 mt-2"></i> </div>
@@ -76,8 +76,8 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{count($user)}}</h2>
-                        <p class="text-white mb-0">User</p>
+                        <h2 class="mb-0 number-font">0</h2>
+                        <p class="text-white mb-0">Customer</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-user text-white fs-40 me-2 mt-2"></i> </div>
                 </div>
@@ -90,10 +90,10 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{count($role)}}</h2>
-                        <p class="text-white mb-0">Role</p>
+                        <h2 class="mb-0 number-font">{{count($user)}}</h2>
+                        <p class="text-white mb-0">User</p>
                     </div>
-                    <div class="ms-auto"> <i class="fe fe-share-2 text-white fs-40 me-2 mt-2"></i> </div>
+                    <div class="ms-auto"> <i class="fe fe-user text-white fs-40 me-2 mt-2"></i> </div>
                 </div>
             </div>
         </div>

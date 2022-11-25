@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_jenis', function (Blueprint $table) {
-            $table->increments('jenis_id');
-            $table->string('jenis_nama');
-            $table->string('jenis_slug');
-            $table->string('jenis_keterangan')->nullable();
+        Schema::create('tbl_jenisbarang', function (Blueprint $table) {
+            $table->increments('jenisbarang_id');
+            $table->string('jenisbarang_nama');
+            $table->string('jenisbarang_slug');
+            $table->string('jenisbarang_keterangan')->nullable();
             $table->timestamps();
         });
     }

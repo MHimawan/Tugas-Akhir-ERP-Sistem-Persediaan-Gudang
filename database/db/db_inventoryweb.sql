@@ -97,7 +97,7 @@ CREATE TABLE `tbl_akses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`akses_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=440 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=452 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_akses` */
 
@@ -315,7 +315,19 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (436,NULL,NULL,'3','3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (437,NULL,NULL,'4','3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (438,NULL,NULL,'5','3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(439,NULL,NULL,'6','3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11');
+(439,NULL,NULL,'6','3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
+(440,'1669390641',NULL,NULL,'1','view','2022-11-25 15:37:59','2022-11-25 15:37:59'),
+(441,'1669390641',NULL,NULL,'1','create','2022-11-25 15:38:06','2022-11-25 15:38:06'),
+(442,'1669390641',NULL,NULL,'1','update','2022-11-25 15:38:07','2022-11-25 15:38:07'),
+(443,'1669390641',NULL,NULL,'1','delete','2022-11-25 15:38:08','2022-11-25 15:38:08'),
+(444,'1669390641',NULL,NULL,'2','view','2022-11-25 15:38:23','2022-11-25 15:38:23'),
+(445,'1669390641',NULL,NULL,'2','create','2022-11-25 15:38:31','2022-11-25 15:38:31'),
+(446,'1669390641',NULL,NULL,'2','update','2022-11-25 15:38:31','2022-11-25 15:38:31'),
+(447,'1669390641',NULL,NULL,'2','delete','2022-11-25 15:38:32','2022-11-25 15:38:32'),
+(448,'1669390641',NULL,NULL,'3','view','2022-11-25 15:38:49','2022-11-25 15:38:49'),
+(449,'1669390641',NULL,NULL,'3','create','2022-11-25 15:38:55','2022-11-25 15:38:55'),
+(450,'1669390641',NULL,NULL,'3','update','2022-11-25 15:38:55','2022-11-25 15:38:55'),
+(451,'1669390641',NULL,NULL,'3','delete','2022-11-25 15:38:57','2022-11-25 15:38:57');
 
 /*Table structure for table `tbl_appreance` */
 
@@ -339,6 +351,32 @@ CREATE TABLE `tbl_appreance` (
 insert  into `tbl_appreance`(`appreance_id`,`user_id`,`appreance_layout`,`appreance_theme`,`appreance_menu`,`appreance_header`,`appreance_sidestyle`,`created_at`,`updated_at`) values 
 (2,'1','sidebar-mini','light-mode','light-menu','header-light','default-menu','2022-11-22 09:45:47','2022-11-24 13:00:20');
 
+/*Table structure for table `tbl_barang` */
+
+DROP TABLE IF EXISTS `tbl_barang`;
+
+CREATE TABLE `tbl_barang` (
+  `barang_id` int(255) NOT NULL AUTO_INCREMENT,
+  `jenisbarang_id` varchar(255) DEFAULT NULL,
+  `satuan_id` varchar(255) DEFAULT NULL,
+  `merk_id` varchar(255) DEFAULT NULL,
+  `barang_kode` varchar(255) NOT NULL,
+  `barang_nama` varchar(255) NOT NULL,
+  `barang_slug` varchar(255) DEFAULT NULL,
+  `barang_harga` varchar(255) NOT NULL,
+  `barang_stok` varchar(255) NOT NULL,
+  `barang_gambar` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`barang_id`,`barang_kode`,`barang_nama`,`barang_harga`,`barang_stok`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+/*Data for the table `tbl_barang` */
+
+insert  into `tbl_barang`(`barang_id`,`jenisbarang_id`,`satuan_id`,`merk_id`,`barang_kode`,`barang_nama`,`barang_slug`,`barang_harga`,`barang_stok`,`barang_gambar`,`created_at`,`updated_at`) values 
+(5,'12','7','2','BRG-1669390175622','Motherboard','motherboard','4000000','0','image.png','2022-11-25 15:30:12','2022-11-25 15:30:12'),
+(6,'13','1','7','BRG-1669390220236','Baut 24mm','baut-24mm','1000000','0','image.png','2022-11-25 15:30:50','2022-11-25 15:30:50');
+
 /*Table structure for table `tbl_jenisbarang` */
 
 DROP TABLE IF EXISTS `tbl_jenisbarang`;
@@ -351,13 +389,14 @@ CREATE TABLE `tbl_jenisbarang` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`jenisbarang_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_jenisbarang` */
 
 insert  into `tbl_jenisbarang`(`jenisbarang_id`,`jenisbarang_nama`,`jenisbarang_slug`,`jenisbarang_ket`,`created_at`,`updated_at`) values 
-(8,'Pakaian','pakaian',NULL,'2022-11-24 12:13:00','2022-11-24 12:13:00'),
-(10,'Minuman','minuman',NULL,'2022-11-24 12:16:59','2022-11-24 12:16:59');
+(11,'Elektronik','elektronik',NULL,'2022-11-25 15:24:18','2022-11-25 15:25:39'),
+(12,'Perangkat Komputer','perangkat-komputer',NULL,'2022-11-25 15:26:15','2022-11-25 15:27:16'),
+(13,'Besi','besi',NULL,'2022-11-25 15:27:33','2022-11-25 15:27:33');
 
 /*Table structure for table `tbl_menu` */
 
@@ -374,15 +413,16 @@ CREATE TABLE `tbl_menu` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`menu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1668510569 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1669390642 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_menu` */
 
 insert  into `tbl_menu`(`menu_id`,`menu_judul`,`menu_slug`,`menu_icon`,`menu_redirect`,`menu_sort`,`menu_type`,`created_at`,`updated_at`) values 
 (1667444041,'Dashboard','dashboard','home','/dashboard','1','1','2022-11-15 10:51:04','2022-11-15 10:51:04'),
 (1668509889,'Master Barang','master-barang','package','-','2','2','2022-11-15 10:58:09','2022-11-15 11:03:15'),
-(1668510437,'Transaksi','transaksi','repeat','-','3','2','2022-11-15 11:07:17','2022-11-15 11:08:19'),
-(1668510568,'Laporan','laporan','printer','-','4','2','2022-11-15 11:09:28','2022-11-15 11:09:28');
+(1668510437,'Transaksi','transaksi','repeat','-','4','2','2022-11-15 11:07:17','2022-11-25 15:37:36'),
+(1668510568,'Laporan','laporan','printer','-','5','2','2022-11-15 11:09:28','2022-11-25 15:37:28'),
+(1669390641,'Customer','customer','user','/customer','3','1','2022-11-25 15:37:21','2022-11-25 15:37:36');
 
 /*Table structure for table `tbl_merk` */
 
@@ -396,13 +436,14 @@ CREATE TABLE `tbl_merk` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`merk_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_merk` */
 
 insert  into `tbl_merk`(`merk_id`,`merk_nama`,`merk_slug`,`merk_keterangan`,`created_at`,`updated_at`) values 
 (1,'Huawei','huawei',NULL,'2022-11-15 18:14:09','2022-11-15 18:14:09'),
-(2,'Lenovo','lenovo',NULL,'2022-11-15 18:14:33','2022-11-15 18:14:45');
+(2,'Lenovo','lenovo',NULL,'2022-11-15 18:14:33','2022-11-15 18:14:45'),
+(7,'Steel','steel',NULL,'2022-11-25 15:29:27','2022-11-25 15:29:27');
 
 /*Table structure for table `tbl_role` */
 
