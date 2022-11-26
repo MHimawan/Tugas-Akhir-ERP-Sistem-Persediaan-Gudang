@@ -3,17 +3,21 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Ubah Merk Barang</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title">Ubah Customer Barang</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <input type="hidden" name="idmerkU">
+                <input type="hidden" name="idcustomerU">
                 <div class="form-group">
-                    <label for="merkU" class="form-label">Merk Barang <span class="text-danger">*</span></label>
-                    <input type="text" name="merkU" class="form-control" placeholder="">
+                    <label for="customerU" class="form-label">Customer Barang <span class="text-danger">*</span></label>
+                    <input type="text" name="customerU" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="ketU" class="form-label">Keterangan</label>
-                    <textarea name="ketU" class="form-control" rows="4"></textarea>
+                    <label for="notelpU" class="form-label">No Telepon</label>
+                    <input type="text" name="notelpU" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="alamatU" class="form-label">Alamat</label>
+                    <textarea name="alamatU" class="form-control" rows="4"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
@@ -31,13 +35,13 @@
 @section('formEditJS')
 <script>
     function checkFormU() {
-        const merk = $("input[name='merkU']").val();
+        const customer = $("input[name='customerU']").val();
         setLoadingU(true);
         resetValidU();
 
-        if (merk == "") {
-            validasi('Merk Barang wajib di isi!', 'warning');
-            $("input[name='merkU']").addClass('is-invalid');
+        if (customer == "") {
+            validasi('Nama Customer wajib di isi!', 'warning');
+            $("input[name='customerU']").addClass('is-invalid');
             setLoadingU(false);
             return false;
         } else {
@@ -46,17 +50,19 @@
     }
 
     function submitFormU() {
-        const id = $("input[name='idmerkU']").val();
-        const merk = $("input[name='merkU']").val();
-        const ket = $("textarea[name='ketU']").val();
+        const id = $("input[name='idcustomerU']").val();
+        const customer = $("input[name='customerU']").val();
+        const notelp = $("input[name='notelpU']").val();
+        const alamat = $("textarea[name='alamatU']").val();
 
         $.ajax({
             type: 'POST',
-            url: "{{url('admin/merk/proses_ubah')}}/" + id,
+            url: "{{url('admin/customer/proses_ubah')}}/" + id,
             enctype: 'multipart/form-data',
             data: {
-                merk: merk,
-                ket: ket
+                customer: customer,
+                notelp: notelp,
+                alamat: alamat
             },
             success: function(data) {
                 swal({
@@ -71,15 +77,17 @@
     }
 
     function resetValidU() {
-        $("input[name='merkU']").removeClass('is-invalid');
-        $("textarea[name='ketU']").removeClass('is-invalid');
+        $("input[name='customerU']").removeClass('is-invalid');
+        $("input[name='notelpU']").removeClass('is-invalid');
+        $("textarea[name='alamatU']").removeClass('is-invalid');
     };
 
     function resetU() {
         resetValidU();
-        $("input[name='idmerkU']").val('');
-        $("input[name='merkU']").val('');
-        $("textarea[name='ketU']").val('');
+        $("input[name='idcustomerU']").val('');
+        $("input[name='customerU']").val('');
+        $("input[name='notelpU']").val('');
+        $("textarea[name='alamatU']").val('');
         setLoadingU(false);
     }
 

@@ -43,7 +43,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
@@ -56,10 +56,12 @@ insert  into `migrations`(`id`,`migration`,`batch`) values
 (6,'2022_11_03_023905_create_table_submenu',1),
 (7,'2022_11_03_064417_create_tbl_akses',1),
 (8,'2022_11_08_024215_create_tbl_web',1),
-(9,'2022_11_15_131148_create_tbl_jenis',2),
+(9,'2022_11_15_131148_create_tbl_jenisbarang',2),
 (10,'2022_11_15_173700_create_tbl_satuan',3),
 (11,'2022_11_15_180434_create_tbl_merk',4),
-(12,'2022_11_16_120018_create_tbl_appreance',5);
+(12,'2022_11_16_120018_create_tbl_appreance',5),
+(13,'2022_11_25_141731_create_tbl_barang',6),
+(14,'2022_11_26_011349_create_tbl_customer',7);
 
 /*Table structure for table `personal_access_tokens` */
 
@@ -376,6 +378,26 @@ CREATE TABLE `tbl_barang` (
 insert  into `tbl_barang`(`barang_id`,`jenisbarang_id`,`satuan_id`,`merk_id`,`barang_kode`,`barang_nama`,`barang_slug`,`barang_harga`,`barang_stok`,`barang_gambar`,`created_at`,`updated_at`) values 
 (5,'12','7','2','BRG-1669390175622','Motherboard','motherboard','4000000','0','image.png','2022-11-25 15:30:12','2022-11-25 15:30:12'),
 (6,'13','1','7','BRG-1669390220236','Baut 24mm','baut-24mm','1000000','0','image.png','2022-11-25 15:30:50','2022-11-25 15:30:50');
+
+/*Table structure for table `tbl_customer` */
+
+DROP TABLE IF EXISTS `tbl_customer`;
+
+CREATE TABLE `tbl_customer` (
+  `customer_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `customer_nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_alamat` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_notelp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `tbl_customer` */
+
+insert  into `tbl_customer`(`customer_id`,`customer_nama`,`customer_slug`,`customer_alamat`,`customer_notelp`,`created_at`,`updated_at`) values 
+(2,'Radhian Sobarna','radhian-sobarna','Sumedang','087817379229','2022-11-26 01:36:34','2022-11-26 01:43:58');
 
 /*Table structure for table `tbl_jenisbarang` */
 
