@@ -11,7 +11,7 @@ Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash ad
 * **Satuan Barang**
 * **Merk Barang**
 * **Barang**
-* **Customer** `Progress`
+* **Customer**
 * **Barang Masuk** `Progress`
 * **Barang Keluar** `Progress`
 * **Laporan Barang Masuk** `Progress`
@@ -35,6 +35,12 @@ Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash ad
 </p>
 
 ## *:rocket: Instalasi*
+#### :arrow_right: Clone Project / Download File
+Clone Project dengan perintah terminal `gitbash` sebagai berikut:
+```
+git clone git@github.com:radhiant/laravel-inventoryweb.git
+```
+Atau bisa klik tombol download Zip dan extrak file tersebut
 #### :arrow_right: Buat Database
 Buat Database `db_inventoryweb`
 #### :arrow_right: Config ENV
@@ -73,6 +79,7 @@ username: `operator` password: `12345678`
 ![46e7cb6f-f5e5-4d83-8f13-6b0ac51783de](https://user-images.githubusercontent.com/47371845/204021072-516b1518-4a18-493b-ba81-128f38550ca2.png)
 ![d0b00488-665f-40fd-bd13-80700dcfda55](https://user-images.githubusercontent.com/47371845/204021113-74fe9e9f-2c3b-4209-9f72-220ba75a525e.png)
 ![99c8e171-c9d2-411b-b051-d5a00720fffa](https://user-images.githubusercontent.com/47371845/204021125-811b25be-9e60-43ea-a3a2-41fed58b2c63.png)
+![87663504-3da5-4153-9eaf-ab6b0fdab721](https://user-images.githubusercontent.com/47371845/204067965-1c237723-1bf0-4bd2-bcb4-849843f03fdc.png)
 ![dbb52cc8-fc45-4abe-a9dd-4ffcf5107c4c](https://user-images.githubusercontent.com/47371845/204021151-76cec801-0b2d-4cf1-9282-334f88865cf3.png)
 ![f23b34f3-4a46-4559-9943-a0a3d3f80178](https://user-images.githubusercontent.com/47371845/204021178-d7ad1914-996e-459f-bd69-ec6424a84b34.png)
 ![f8a4bf7a-7732-408c-b462-84954ec703c3](https://user-images.githubusercontent.com/47371845/204021197-a312efcd-12b6-4317-b0a1-8a917d4d5b88.png)
