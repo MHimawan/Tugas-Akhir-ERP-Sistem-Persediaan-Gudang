@@ -1,7 +1,7 @@
 ![201010759-6eb0901a-8490-43f1-8b6a-772b39965a3e](https://user-images.githubusercontent.com/47371845/202890941-cef1be66-cc32-4b19-9067-f57b4aa220d0.png)
 
 ## *:information_source: Inventoryweb*
-Aplikasi ini bisa anda gunakan untuk mengontrol stock barang yang anda miliki sehingga jelas transaksi keluar dan masuk barang tersebut juga mempermudah kontrol barang tersebut, jika anda pelaku UMKM dan butuh sistem inventory stock barang maka aplikasi ini adalah jawabannya.
+Aplikasi ini bisa anda gunakan untuk mengontrol stock barang yang anda miliki sehingga jelas transaksi keluar dan masuk barang tersebut juga mempermudah kontrol barang tersebut.
 <br><br>
 Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash admin`.
 
