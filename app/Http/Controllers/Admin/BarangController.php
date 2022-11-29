@@ -166,6 +166,7 @@ class BarangController extends Controller
                 'barang_nama' => $request->nama,
                 'barang_slug' => $slug,
                 'barang_harga' => $request->harga,
+                'barang_stok' => $request->stok,
             ]);
         } else {
             //update data without image
@@ -177,6 +178,7 @@ class BarangController extends Controller
                 'barang_nama' => $request->nama,
                 'barang_slug' => $slug,
                 'barang_harga' => $request->harga,
+                'barang_stok' => $request->stok,
             ]);
         }
 

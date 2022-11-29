@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BarangController;
+use App\Http\Controllers\Admin\BarangmasukController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JenisBarangController;
@@ -91,6 +92,15 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::post('/admin/customer/proses_tambah/', [CustomerController::class, 'proses_tambah'])->name('customer.store');
         Route::post('/admin/customer/proses_ubah/{customer}', [CustomerController::class, 'proses_ubah']);
         Route::post('/admin/customer/proses_hapus/{customer}', [CustomerController::class, 'proses_hapus']);
+    });
+
+    Route::middleware(['checkRoleUser:/barang-masuk,submenu'])->group(function () {
+        // Barang Masuk
+        Route::resource('/admin/barang-masuk', \App\Http\Controllers\Admin\BarangmasukController::class);
+        Route::get('/admin/barang-masuk/show/', [BarangmasukController::class, 'show'])->name('barang-masuk.getbarang-masuk');
+        Route::post('/admin/barang-masuk/proses_tambah/', [BarangmasukController::class, 'proses_tambah'])->name('barang-masuk.store');
+        Route::post('/admin/barang-masuk/proses_ubah/{barangmasuk}', [BarangmasukController::class, 'proses_ubah']);
+        Route::post('/admin/barang-masuk/proses_hapus/{barangmasuk}', [BarangmasukController::class, 'proses_hapus']);
     });
 
     Route::middleware(['checkRoleUser:1,othermenu'])->group(function () {

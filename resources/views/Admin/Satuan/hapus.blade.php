@@ -35,7 +35,7 @@
                     type: "success"
                 });
                 $('#Hmodaldemo8').modal('toggle');
-                table.ajax.reload();
+                table.ajax.reload(null, false);
                 resetH();
             }
         });

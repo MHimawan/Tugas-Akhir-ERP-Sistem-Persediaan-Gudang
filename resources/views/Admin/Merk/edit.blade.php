@@ -64,7 +64,7 @@
                     type: "success"
                 });
                 $('#Umodaldemo8').modal('toggle');
-                table.ajax.reload();
+                table.ajax.reload(null, false);
                 resetU();
             }
         });

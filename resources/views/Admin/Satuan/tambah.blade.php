@@ -67,7 +67,7 @@
                         title: "Berhasil ditambah!",
                         type: "success"
                     });
-                    table.ajax.reload();
+                    table.ajax.reload(null, false);
                     reset();
 
                 }

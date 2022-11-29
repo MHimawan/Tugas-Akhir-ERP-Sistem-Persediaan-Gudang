@@ -56,6 +56,41 @@ $appreance = AppreanceModel::where('user_id', '=', Session::get('user')->user_id
         .datepicker {
             z-index: 20000000 !important
         }
+
+        button.cancel {
+            background-color: gray !important;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            background-color: #F5F5F5;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            background-color: #F5F5F5;
+        }
+
+        .dataTables_scrollBody::-webkit-scrollbar {
+            width: 6px;
+            background-color: #F5F5F5;
+            height: 10px !important;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #777;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #777;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #777 !important;
+        }
     </style>
 </head>
 

@@ -43,7 +43,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
@@ -61,7 +61,8 @@ insert  into `migrations`(`id`,`migration`,`batch`) values
 (11,'2022_11_15_180434_create_tbl_merk',4),
 (12,'2022_11_16_120018_create_tbl_appreance',5),
 (13,'2022_11_25_141731_create_tbl_barang',6),
-(14,'2022_11_26_011349_create_tbl_customer',7);
+(14,'2022_11_26_011349_create_tbl_customer',7),
+(16,'2022_11_28_151108_create_tbl_barangmasuk',8);
 
 /*Table structure for table `personal_access_tokens` */
 
@@ -377,7 +378,29 @@ CREATE TABLE `tbl_barang` (
 
 insert  into `tbl_barang`(`barang_id`,`jenisbarang_id`,`satuan_id`,`merk_id`,`barang_kode`,`barang_nama`,`barang_slug`,`barang_harga`,`barang_stok`,`barang_gambar`,`created_at`,`updated_at`) values 
 (5,'12','7','2','BRG-1669390175622','Motherboard','motherboard','4000000','0','image.png','2022-11-25 15:30:12','2022-11-25 15:30:12'),
-(6,'13','1','7','BRG-1669390220236','Baut 24mm','baut-24mm','1000000','0','image.png','2022-11-25 15:30:50','2022-11-25 15:30:50');
+(6,'13','1','7','BRG-1669390220236','Baut 24mm','baut-24mm','1000000','0','image.png','2022-11-25 15:30:50','2022-11-29 14:30:37');
+
+/*Table structure for table `tbl_barangmasuk` */
+
+DROP TABLE IF EXISTS `tbl_barangmasuk`;
+
+CREATE TABLE `tbl_barangmasuk` (
+  `bm_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bm_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barang_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bm_tanggal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bm_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`bm_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `tbl_barangmasuk` */
+
+insert  into `tbl_barangmasuk`(`bm_id`,`bm_kode`,`barang_kode`,`customer_id`,`bm_tanggal`,`bm_jumlah`,`created_at`,`updated_at`) values 
+(1,'BM-1669730554623','BRG-1669390220236','2','2022-11-01','50','2022-11-29 14:02:43','2022-11-29 14:20:13'),
+(2,'BM-1669731639801','BRG-1669390175622','2','2022-11-30','10','2022-11-29 14:20:55','2022-11-29 14:20:55');
 
 /*Table structure for table `tbl_customer` */
 
