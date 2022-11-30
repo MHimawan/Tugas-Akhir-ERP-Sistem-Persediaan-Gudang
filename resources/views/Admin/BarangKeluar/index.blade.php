@@ -3,11 +3,11 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Barang Masuk</h1>
+        <h1 class="page-title">Barang Keluar</h1>
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item text-gray">Transaksi</li>
-                <li class="breadcrumb-item active" aria-current="page">Barang Masuk</li>
+                <li class="breadcrumb-item active" aria-current="page">Barang Keluar</li>
             </ol>
         </div>
     </div>
@@ -34,12 +34,12 @@
                             class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                             <thead>
                                 <th class="border-bottom-0" width="1%">No</th>
-                                <th class="border-bottom-0">Tanggal Masuk</th>
-                                <th class="border-bottom-0">Kode Barang Masuk</th>
+                                <th class="border-bottom-0">Tanggal Keluar</th>
+                                <th class="border-bottom-0">Kode Barang Keluar</th>
                                 <th class="border-bottom-0">Kode Barang</th>
-                                <th class="border-bottom-0">Customer</th>
                                 <th class="border-bottom-0">Barang</th>
-                                <th class="border-bottom-0">Jumlah Masuk</th>
+                                <th class="border-bottom-0">Jumlah Keluar</th>
+                                <th class="border-bottom-0">Tujuan</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </thead>
                             <tbody></tbody>
@@ -51,32 +51,32 @@
     </div>
     <!-- END ROW -->
 
-    @include('Admin.BarangMasuk.tambah', ['barang' => $barang, 'customer' => $customer])
-    @include('Admin.BarangMasuk.edit', ['barang' => $barang, 'customer' => $customer])
-    @include('Admin.BarangMasuk.hapus')
+    @include('Admin.BarangKeluar.tambah', ['barang' => $barang])
+    @include('Admin.BarangKeluar.edit', ['barang' => $barang])
+    @include('Admin.BarangKeluar.hapus')
 
     <script>
         function generateID() {
             id = new Date().getTime();
-            $("input[name='bmkode']").val("BM-" + id);
+            $("input[name='bkkode']").val("BK-" + id);
         }
 
         function update(data) {
-            $("input[name='idbmU']").val(data.bm_id);
-            $("input[name='bmkodeU']").val(data.bm_kode);
+            $("input[name='idbkU']").val(data.bk_id);
+            $("input[name='bkkodeU']").val(data.bk_kode);
             $("select[name='barangU']").val(data.barang_kode);
-            $("select[name='customerU']").val(data.customer_id);
-            $("input[name='jmlU']").val(data.bm_jumlah);
+            $("input[name='jmlU']").val(data.bk_jumlah);
+            $("input[name='tujuanU']").val(data.bk_tujuan.replace(/_/g, ' '));
 
-            $("input[name='tglmasukU").bootstrapdatepicker({
+            $("input[name='tglkeluarU").bootstrapdatepicker({
                 format: 'yyyy-mm-dd',
                 autoclose: true
-            }).bootstrapdatepicker("update", data.bm_tanggal);
+            }).bootstrapdatepicker("update", data.bk_tanggal);
         }
 
         function hapus(data) {
-            $("input[name='idbm']").val(data.bm_id);
-            $("#vbm").html("Kode BM " + "<b>" + data.bm_kode + "</b>");
+            $("input[name='idbk']").val(data.bk_id);
+            $("#vbk").html("Kode BK " + "<b>" + data.bk_kode + "</b>");
         }
 
         function validasi(judul, status) {
@@ -117,7 +117,7 @@
                 lengthChange: true,
 
                 "ajax": {
-                    "url": "{{ route('barang-masuk.getbarang-masuk') }}",
+                    "url": "{{ route('barang-keluar.getbarang-keluar') }}",
                 },
 
                 "columns": [{
@@ -127,27 +127,27 @@
                     },
                     {
                         data: 'tgl',
-                        name: 'bm_tanggal',
+                        name: 'bk_tanggal',
                     },
                     {
-                        data: 'bm_kode',
-                        name: 'bm_kode',
+                        data: 'bk_kode',
+                        name: 'bk_kode',
                     },
                     {
                         data: 'barang_kode',
                         name: 'barang_kode',
                     },
                     {
-                        data: 'customer',
-                        name: 'customer_nama',
-                    },
-                    {
                         data: 'barang',
                         name: 'barang_nama',
                     },
                     {
-                        data: 'bm_jumlah',
-                        name: 'bm_jumlah',
+                        data: 'bk_jumlah',
+                        name: 'bk_jumlah',
+                    },
+                    {
+                        data: 'tujuan',
+                        name: 'bk_tujuan',
                     },
                     {
                         data: 'action',

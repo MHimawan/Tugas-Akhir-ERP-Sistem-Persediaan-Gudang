@@ -43,7 +43,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `migrations` */
 
@@ -62,7 +62,8 @@ insert  into `migrations`(`id`,`migration`,`batch`) values
 (12,'2022_11_16_120018_create_tbl_appreance',5),
 (13,'2022_11_25_141731_create_tbl_barang',6),
 (14,'2022_11_26_011349_create_tbl_customer',7),
-(16,'2022_11_28_151108_create_tbl_barangmasuk',8);
+(16,'2022_11_28_151108_create_tbl_barangmasuk',8),
+(17,'2022_11_30_115904_create_tbl_barangkeluar',9);
 
 /*Table structure for table `personal_access_tokens` */
 
@@ -100,7 +101,7 @@ CREATE TABLE `tbl_akses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`akses_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=452 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=488 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_akses` */
 
@@ -125,10 +126,6 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (241,NULL,'9',NULL,'1','create','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (242,NULL,'9',NULL,'1','update','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (243,NULL,'9',NULL,'1','delete','2022-11-24 12:07:30','2022-11-24 12:07:30'),
-(244,NULL,'11',NULL,'1','view','2022-11-24 12:07:30','2022-11-24 12:07:30'),
-(245,NULL,'11',NULL,'1','create','2022-11-24 12:07:30','2022-11-24 12:07:30'),
-(246,NULL,'11',NULL,'1','update','2022-11-24 12:07:30','2022-11-24 12:07:30'),
-(247,NULL,'11',NULL,'1','delete','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (248,NULL,'17',NULL,'1','view','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (249,NULL,'17',NULL,'1','create','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (250,NULL,'17',NULL,'1','update','2022-11-24 12:07:30','2022-11-24 12:07:30'),
@@ -137,10 +134,6 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (253,NULL,'10',NULL,'1','create','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (254,NULL,'10',NULL,'1','update','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (255,NULL,'10',NULL,'1','delete','2022-11-24 12:07:30','2022-11-24 12:07:30'),
-(256,NULL,'12',NULL,'1','view','2022-11-24 12:07:30','2022-11-24 12:07:30'),
-(257,NULL,'12',NULL,'1','create','2022-11-24 12:07:30','2022-11-24 12:07:30'),
-(258,NULL,'12',NULL,'1','update','2022-11-24 12:07:30','2022-11-24 12:07:30'),
-(259,NULL,'12',NULL,'1','delete','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (260,NULL,'18',NULL,'1','view','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (261,NULL,'18',NULL,'1','create','2022-11-24 12:07:30','2022-11-24 12:07:30'),
 (262,NULL,'18',NULL,'1','update','2022-11-24 12:07:30','2022-11-24 12:07:30'),
@@ -197,10 +190,6 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (313,NULL,'9',NULL,'2','create','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (314,NULL,'9',NULL,'2','update','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (315,NULL,'9',NULL,'2','delete','2022-11-24 13:04:11','2022-11-24 13:04:11'),
-(316,NULL,'11',NULL,'2','view','2022-11-24 13:04:11','2022-11-24 13:04:11'),
-(317,NULL,'11',NULL,'2','create','2022-11-24 13:04:11','2022-11-24 13:04:11'),
-(318,NULL,'11',NULL,'2','update','2022-11-24 13:04:11','2022-11-24 13:04:11'),
-(319,NULL,'11',NULL,'2','delete','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (320,NULL,'17',NULL,'2','view','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (321,NULL,'17',NULL,'2','create','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (322,NULL,'17',NULL,'2','update','2022-11-24 13:04:11','2022-11-24 13:04:11'),
@@ -209,10 +198,6 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (325,NULL,'10',NULL,'2','create','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (326,NULL,'10',NULL,'2','update','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (327,NULL,'10',NULL,'2','delete','2022-11-24 13:04:11','2022-11-24 13:04:11'),
-(328,NULL,'12',NULL,'2','view','2022-11-24 13:04:11','2022-11-24 13:04:11'),
-(329,NULL,'12',NULL,'2','create','2022-11-24 13:04:11','2022-11-24 13:04:11'),
-(330,NULL,'12',NULL,'2','update','2022-11-24 13:04:11','2022-11-24 13:04:11'),
-(331,NULL,'12',NULL,'2','delete','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (332,NULL,'18',NULL,'2','view','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (333,NULL,'18',NULL,'2','create','2022-11-24 13:04:11','2022-11-24 13:04:11'),
 (334,NULL,'18',NULL,'2','update','2022-11-24 13:04:11','2022-11-24 13:04:11'),
@@ -268,10 +253,6 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (385,NULL,'9',NULL,'3','create','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (386,NULL,'9',NULL,'3','update','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (387,NULL,'9',NULL,'3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(388,NULL,'11',NULL,'3','view','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(389,NULL,'11',NULL,'3','create','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(390,NULL,'11',NULL,'3','update','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(391,NULL,'11',NULL,'3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (392,NULL,'17',NULL,'3','view','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (393,NULL,'17',NULL,'3','create','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (394,NULL,'17',NULL,'3','update','2022-11-24 13:08:11','2022-11-24 13:08:11'),
@@ -280,10 +261,6 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (397,NULL,'10',NULL,'3','create','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (398,NULL,'10',NULL,'3','update','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (399,NULL,'10',NULL,'3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(400,NULL,'12',NULL,'3','view','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(401,NULL,'12',NULL,'3','create','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(402,NULL,'12',NULL,'3','update','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(403,NULL,'12',NULL,'3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (404,NULL,'18',NULL,'3','view','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (405,NULL,'18',NULL,'3','create','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (406,NULL,'18',NULL,'3','update','2022-11-24 13:08:11','2022-11-24 13:08:11'),
@@ -330,7 +307,43 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (448,'1669390641',NULL,NULL,'3','view','2022-11-25 15:38:49','2022-11-25 15:38:49'),
 (449,'1669390641',NULL,NULL,'3','create','2022-11-25 15:38:55','2022-11-25 15:38:55'),
 (450,'1669390641',NULL,NULL,'3','update','2022-11-25 15:38:55','2022-11-25 15:38:55'),
-(451,'1669390641',NULL,NULL,'3','delete','2022-11-25 15:38:57','2022-11-25 15:38:57');
+(451,'1669390641',NULL,NULL,'3','delete','2022-11-25 15:38:57','2022-11-25 15:38:57'),
+(452,NULL,'21',NULL,'1','view','2022-11-30 12:57:38','2022-11-30 12:57:38'),
+(453,NULL,'22',NULL,'1','view','2022-11-30 12:57:39','2022-11-30 12:57:39'),
+(454,NULL,'23',NULL,'1','view','2022-11-30 12:57:40','2022-11-30 12:57:40'),
+(455,NULL,'21',NULL,'1','create','2022-11-30 12:57:53','2022-11-30 12:57:53'),
+(456,NULL,'22',NULL,'1','create','2022-11-30 12:57:54','2022-11-30 12:57:54'),
+(457,NULL,'23',NULL,'1','create','2022-11-30 12:57:55','2022-11-30 12:57:55'),
+(458,NULL,'23',NULL,'1','update','2022-11-30 12:57:56','2022-11-30 12:57:56'),
+(459,NULL,'22',NULL,'1','update','2022-11-30 12:57:56','2022-11-30 12:57:56'),
+(460,NULL,'21',NULL,'1','update','2022-11-30 12:57:57','2022-11-30 12:57:57'),
+(461,NULL,'21',NULL,'1','delete','2022-11-30 12:57:57','2022-11-30 12:57:57'),
+(462,NULL,'22',NULL,'1','delete','2022-11-30 12:57:58','2022-11-30 12:57:58'),
+(463,NULL,'23',NULL,'1','delete','2022-11-30 12:57:58','2022-11-30 12:57:58'),
+(464,NULL,'21',NULL,'2','view','2022-11-30 12:58:28','2022-11-30 12:58:28'),
+(465,NULL,'22',NULL,'2','view','2022-11-30 12:58:29','2022-11-30 12:58:29'),
+(466,NULL,'23',NULL,'2','view','2022-11-30 12:58:31','2022-11-30 12:58:31'),
+(467,NULL,'21',NULL,'2','create','2022-11-30 12:59:04','2022-11-30 12:59:04'),
+(468,NULL,'21',NULL,'2','update','2022-11-30 12:59:05','2022-11-30 12:59:05'),
+(469,NULL,'21',NULL,'2','delete','2022-11-30 12:59:06','2022-11-30 12:59:06'),
+(470,NULL,'22',NULL,'2','delete','2022-11-30 12:59:07','2022-11-30 12:59:07'),
+(471,NULL,'22',NULL,'2','update','2022-11-30 12:59:08','2022-11-30 12:59:08'),
+(472,NULL,'22',NULL,'2','create','2022-11-30 12:59:09','2022-11-30 12:59:09'),
+(473,NULL,'23',NULL,'2','create','2022-11-30 12:59:10','2022-11-30 12:59:10'),
+(474,NULL,'23',NULL,'2','update','2022-11-30 12:59:11','2022-11-30 12:59:11'),
+(475,NULL,'23',NULL,'2','delete','2022-11-30 12:59:12','2022-11-30 12:59:12'),
+(476,NULL,'21',NULL,'3','view','2022-11-30 12:59:47','2022-11-30 12:59:47'),
+(477,NULL,'22',NULL,'3','view','2022-11-30 12:59:48','2022-11-30 12:59:48'),
+(478,NULL,'23',NULL,'3','view','2022-11-30 12:59:48','2022-11-30 12:59:48'),
+(479,NULL,'21',NULL,'3','create','2022-11-30 13:00:24','2022-11-30 13:00:24'),
+(480,NULL,'21',NULL,'3','update','2022-11-30 13:00:25','2022-11-30 13:00:25'),
+(481,NULL,'21',NULL,'3','delete','2022-11-30 13:00:26','2022-11-30 13:00:26'),
+(482,NULL,'22',NULL,'3','delete','2022-11-30 13:00:27','2022-11-30 13:00:27'),
+(483,NULL,'22',NULL,'3','update','2022-11-30 13:00:28','2022-11-30 13:00:28'),
+(484,NULL,'22',NULL,'3','create','2022-11-30 13:00:29','2022-11-30 13:00:29'),
+(485,NULL,'23',NULL,'3','create','2022-11-30 13:00:30','2022-11-30 13:00:30'),
+(486,NULL,'23',NULL,'3','update','2022-11-30 13:00:30','2022-11-30 13:00:30'),
+(487,NULL,'23',NULL,'3','delete','2022-11-30 13:00:31','2022-11-30 13:00:31');
 
 /*Table structure for table `tbl_appreance` */
 
@@ -379,6 +392,28 @@ CREATE TABLE `tbl_barang` (
 insert  into `tbl_barang`(`barang_id`,`jenisbarang_id`,`satuan_id`,`merk_id`,`barang_kode`,`barang_nama`,`barang_slug`,`barang_harga`,`barang_stok`,`barang_gambar`,`created_at`,`updated_at`) values 
 (5,'12','7','2','BRG-1669390175622','Motherboard','motherboard','4000000','0','image.png','2022-11-25 15:30:12','2022-11-25 15:30:12'),
 (6,'13','1','7','BRG-1669390220236','Baut 24mm','baut-24mm','1000000','0','image.png','2022-11-25 15:30:50','2022-11-29 14:30:37');
+
+/*Table structure for table `tbl_barangkeluar` */
+
+DROP TABLE IF EXISTS `tbl_barangkeluar`;
+
+CREATE TABLE `tbl_barangkeluar` (
+  `bk_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bk_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barang_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bk_tanggal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bk_tujuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bk_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`bk_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `tbl_barangkeluar` */
+
+insert  into `tbl_barangkeluar`(`bk_id`,`bk_kode`,`barang_kode`,`bk_tanggal`,`bk_tujuan`,`bk_jumlah`,`created_at`,`updated_at`) values 
+(2,'BK-1669811950758','BRG-1669390220236','2022-11-01','Gudang Tasikmalaya','20','2022-11-30 12:39:22','2022-11-30 12:47:14'),
+(3,'BK-1669812439198','BRG-1669390175622','2022-11-02','Gudang Prindapan','30','2022-11-30 12:47:39','2022-11-30 12:47:39');
 
 /*Table structure for table `tbl_barangmasuk` */
 
@@ -546,19 +581,20 @@ CREATE TABLE `tbl_submenu` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`submenu_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_submenu` */
 
 insert  into `tbl_submenu`(`submenu_id`,`menu_id`,`submenu_judul`,`submenu_slug`,`submenu_redirect`,`submenu_sort`,`created_at`,`updated_at`) values 
 (9,'1668510437','Barang Masuk','barang-masuk','/barang-masuk','1','2022-11-15 11:08:19','2022-11-15 11:08:19'),
 (10,'1668510437','Barang Keluar','barang-keluar','/barang-keluar','2','2022-11-15 11:08:19','2022-11-15 11:08:19'),
-(11,'1668510568','Lap Barang Masuk','lap-barang-masuk','/lap-barang-masuk','1','2022-11-15 11:09:28','2022-11-15 11:09:28'),
-(12,'1668510568','Lap Barang Keluar','lap-barang-keluar','/lap-barang-keluar','2','2022-11-15 11:09:28','2022-11-15 11:09:28'),
 (17,'1668509889','Jenis','jenis','/jenisbarang','1','2022-11-24 12:06:48','2022-11-24 12:06:48'),
 (18,'1668509889','Satuan','satuan','/satuan','2','2022-11-24 12:06:48','2022-11-24 12:06:48'),
 (19,'1668509889','Merk','merk','/merk','3','2022-11-24 12:06:48','2022-11-24 12:06:48'),
-(20,'1668509889','Barang','barang','/barang','4','2022-11-24 12:06:48','2022-11-24 12:06:48');
+(20,'1668509889','Barang','barang','/barang','4','2022-11-24 12:06:48','2022-11-24 12:06:48'),
+(21,'1668510568','Lap Barang Masuk','lap-barang-masuk','/lap-barang-masuk','1','2022-11-30 12:56:24','2022-11-30 12:56:24'),
+(22,'1668510568','Lap Barang Keluar','lap-barang-keluar','/lap-barang-keluar','2','2022-11-30 12:56:24','2022-11-30 12:56:24'),
+(23,'1668510568','Lap Stok Barang','lap-stok-barang','/lap-stok-barang','3','2022-11-30 12:56:24','2022-11-30 12:56:24');
 
 /*Table structure for table `tbl_user` */
 

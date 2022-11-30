@@ -20,7 +20,7 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{count($jenis)}}</h2>
+                        <h2 class="mb-0 number-font">{{$jenis}}</h2>
                         <p class="text-white mb-0">Jenis Barang </p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-package text-white fs-40 me-2 mt-2"></i> </div>
@@ -34,7 +34,7 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{count($satuan)}}</h2>
+                        <h2 class="mb-0 number-font">{{$satuan}}</h2>
                         <p class="text-white mb-0">Satuan Barang</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-package text-white fs-40 me-2 mt-2"></i> </div>
@@ -48,7 +48,7 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{count($merk)}}</h2>
+                        <h2 class="mb-0 number-font">{{$merk}}</h2>
                         <p class="text-white mb-0">Merk Barang</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-package text-white fs-40 me-2 mt-2"></i> </div>
@@ -62,10 +62,38 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{count($barang)}}</h2>
+                        <h2 class="mb-0 number-font">{{$barang}}</h2>
                         <p class="text-white mb-0">Barang</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-package text-white fs-40 me-2 mt-2"></i> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- COL END -->
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <div class="card bg-success img-card box-success-shadow">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="text-white">
+                        <h2 class="mb-0 number-font">{{$bm}}</h2>
+                        <p class="text-white mb-0">Barang Masuk</p>
+                    </div>
+                    <div class="ms-auto"> <i class="fe fe-repeat text-white fs-40 me-2 mt-2"></i> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- COL END -->
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
+        <div class="card bg-danger img-card box-danger-shadow">
+            <div class="card-body">
+                <div class="d-flex">
+                    <div class="text-white">
+                        <h2 class="mb-0 number-font">{{$bk}}</h2>
+                        <p class="text-white mb-0">Barang Keluar</p>
+                    </div>
+                    <div class="ms-auto"> <i class="fe fe-repeat text-white fs-40 me-2 mt-2"></i> </div>
                 </div>
             </div>
         </div>
@@ -76,7 +104,7 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">0</h2>
+                        <h2 class="mb-0 number-font">{{$customer}}</h2>
                         <p class="text-white mb-0">Customer</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-user text-white fs-40 me-2 mt-2"></i> </div>
@@ -90,7 +118,7 @@
             <div class="card-body">
                 <div class="d-flex">
                     <div class="text-white">
-                        <h2 class="mb-0 number-font">{{count($user)}}</h2>
+                        <h2 class="mb-0 number-font">{{$user}}</h2>
                         <p class="text-white mb-0">User</p>
                     </div>
                     <div class="ms-auto"> <i class="fe fe-user text-white fs-40 me-2 mt-2"></i> </div>
