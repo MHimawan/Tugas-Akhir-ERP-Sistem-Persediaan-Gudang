@@ -12,8 +12,8 @@ Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash ad
 * **Merk Barang**
 * **Barang**
 * **Customer**
-* **Barang Masuk** `Progress`
-* **Barang Keluar** `Progress`
+* **Barang Masuk**
+* **Barang Keluar**
 * **Laporan Barang Masuk** `Progress`
 * **Laporan Barang Keluar** `Progress`
 * **Setting Website**
@@ -74,7 +74,7 @@ username: `operator` password: `12345678`
 
 ## *:desktop_computer: Preview*
 ![ad3c121d-1c33-4b7f-aa0f-5bb2ddce7cf6](https://user-images.githubusercontent.com/47371845/202890250-2c1e64c6-cc01-453f-b490-43eecab1e153.png)
-![3e50c9f2-5663-4265-b9c4-f45e05b24525](https://user-images.githubusercontent.com/47371845/204020998-9fa2e77a-2c92-4a7f-a0ff-42733883452c.png)
+![35ace435-364a-4687-ad3d-cb20c8919f54](https://user-images.githubusercontent.com/47371845/204803970-3270fa90-2d36-473d-b5fa-344ce6802d85.png)
 ![b0a513c2-c7e7-4098-860e-a67c620f315d](https://user-images.githubusercontent.com/47371845/204021044-fb76df11-c80a-4d54-b0b3-f58b223c91fb.png)
 ![46e7cb6f-f5e5-4d83-8f13-6b0ac51783de](https://user-images.githubusercontent.com/47371845/204021072-516b1518-4a18-493b-ba81-128f38550ca2.png)
 ![d0b00488-665f-40fd-bd13-80700dcfda55](https://user-images.githubusercontent.com/47371845/204021113-74fe9e9f-2c3b-4209-9f72-220ba75a525e.png)
