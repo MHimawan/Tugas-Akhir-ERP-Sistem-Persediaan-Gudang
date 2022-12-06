@@ -1,4 +1,4 @@
-![201010759-6eb0901a-8490-43f1-8b6a-772b39965a3e](https://user-images.githubusercontent.com/47371845/202890941-cef1be66-cc32-4b19-9067-f57b4aa220d0.png)
+![Inventoryweb-thumnail](https://user-images.githubusercontent.com/47371845/205918923-dcc3b42f-4d67-46af-9bd1-d6b577b868cb.jpg)
 
 ## *:information_source: Inventoryweb*
 Aplikasi ini bisa anda gunakan untuk mengontrol stock barang yang anda miliki sehingga jelas transaksi keluar dan masuk barang tersebut juga mempermudah kontrol barang tersebut.
