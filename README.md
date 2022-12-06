@@ -72,6 +72,8 @@ username: `superadmin` password: `12345678`
 username: `admin` password: `12345678`
 <br>
 username: `operator` password: `12345678`
+<br>
+username: `manajer` password: `12345678`
 
 ## *:desktop_computer: Preview*
 ![ad3c121d-1c33-4b7f-aa0f-5bb2ddce7cf6](https://user-images.githubusercontent.com/47371845/202890250-2c1e64c6-cc01-453f-b490-43eecab1e153.png)
@@ -90,6 +92,7 @@ username: `operator` password: `12345678`
 ![5fb52443-21e7-4d00-bc44-a22e95242058](https://user-images.githubusercontent.com/47371845/205877019-d0897230-4179-494b-8909-23add66d9c7f.png)
 ![Capture1](https://user-images.githubusercontent.com/47371845/205877040-d0f4aa96-a273-4b39-a582-3d7bd8ea1396.PNG)
 ![06bb2407-764d-4748-afc8-5cd81da997f4](https://user-images.githubusercontent.com/47371845/205877067-d9fc54fd-c4e0-4a0a-887d-719238673941.png)
+![d0102488-3be5-492c-9779-f08be883efb9](https://user-images.githubusercontent.com/47371845/205877487-7eb21ec3-8983-4396-ba29-0bf506b5c4c9.png)
 ![Capture3](https://user-images.githubusercontent.com/47371845/205877133-10388e03-b28d-456e-9636-3a8729af7f06.PNG)
 ![dbb52cc8-fc45-4abe-a9dd-4ffcf5107c4c](https://user-images.githubusercontent.com/47371845/204021151-76cec801-0b2d-4cf1-9282-334f88865cf3.png)
 ![f23b34f3-4a46-4559-9943-a0a3d3f80178](https://user-images.githubusercontent.com/47371845/204021178-d7ad1914-996e-459f-bd69-ec6424a84b34.png)
