@@ -3,11 +3,11 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Laporan Barang Keluar</h1>
+    <h1 class="page-title">Laporan Stok Barang</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item text-gray">Laporan</li>
-            <li class="breadcrumb-item active" aria-current="page">Barang Keluar</li>
+            <li class="breadcrumb-item active" aria-current="page">Stok Barang</li>
         </ol>
     </div>
 </div>
@@ -46,12 +46,12 @@
                     <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
                             <th class="border-bottom-0" width="1%">No</th>
-                            <th class="border-bottom-0">Tanggal Keluar</th>
-                            <th class="border-bottom-0">Kode Barang Keluar</th>
                             <th class="border-bottom-0">Kode Barang</th>
                             <th class="border-bottom-0">Barang</th>
+                            <th class="border-bottom-0">Stok Awal</th>
+                            <th class="border-bottom-0">Jumlah Masuk</th>
                             <th class="border-bottom-0">Jumlah Keluar</th>
-                            <th class="border-bottom-0">Tujuan</th>
+                            <th class="border-bottom-0">Total Stok</th>
                         </thead>
                         <tbody></tbody>
                     </table>
@@ -95,7 +95,7 @@
             lengthChange: true,
 
             "ajax": {
-                "url": "{{ route('lap-bk.getlap-bk') }}",
+                "url": "{{ route('lap-sb.getlap-sb') }}",
                 "data": function(d) {
                     d.tglawal = $('input[name="tglawal"]').val();
                     d.tglakhir = $('input[name="tglakhir"]').val();
@@ -108,28 +108,33 @@
                     searchable: false
                 },
                 {
-                    data: 'tgl',
-                    name: 'bk_tanggal',
-                },
-                {
-                    data: 'bk_kode',
-                    name: 'bk_kode',
-                },
-                {
                     data: 'barang_kode',
                     name: 'barang_kode',
                 },
                 {
-                    data: 'barang',
+                    data: 'barang_nama',
                     name: 'barang_nama',
                 },
                 {
-                    data: 'bk_jumlah',
-                    name: 'bk_jumlah',
+                    data: 'stokawal',
+                    name: 'barang_stok',
                 },
                 {
-                    data: 'tujuan',
-                    name: 'bk_tujuan',
+                    data: 'jmlmasuk',
+                    name: 'barang_kode',
+                    orderable: false,
+                },
+                {
+                    data: 'jmlkeluar',
+                    name: 'barang_kode',
+                    searchable: false,
+                    orderable: false,
+                },
+                {
+                    data: 'totalstok',
+                    name: 'barang_kode',
+                    searchable: false,
+                    orderable: false,
                 },
             ],
 
@@ -156,68 +161,20 @@
     function print() {
         var tglawal = $('input[name="tglawal"]').val();
         var tglakhir = $('input[name="tglakhir"]').val();
-        if (tglawal != '' && tglakhir != '') {
-            window.open(
-                "{{route('lap-bk.print')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
-                '_blank'
-            );
-        } else {
-            swal({
-                title: "Yakin Print Semua Data?",
-                type: "warning",
-                buttons: true,
-                dangerMode: true,
-                confirmButtonText: "Yakin",
-                cancelButtonText: 'Batal',
-                showCancelButton: true,
-                showConfirmButton: true,
-                closeOnConfirm: false,
-                confirmButtonColor: '#09ad95',
-            }, function(value) {
-                if (value == true) {
-                    window.open(
-                        "{{route('lap-bk.print')}}",
-                        '_blank'
-                    );
-                    swal.close();
-                }
-            });
-
-        }
+        window.open(
+            "{{route('lap-sb.print')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
+            '_blank'
+        );
 
     }
 
     function pdf() {
         var tglawal = $('input[name="tglawal"]').val();
         var tglakhir = $('input[name="tglakhir"]').val();
-        if (tglawal != '' && tglakhir != '') {
-            window.open(
-                "{{route('lap-bk.pdf')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
-                '_blank'
-            );
-        } else {
-            swal({
-                title: "Yakin export PDF Semua Data?",
-                type: "warning",
-                buttons: true,
-                dangerMode: true,
-                confirmButtonText: "Yakin",
-                cancelButtonText: 'Batal',
-                showCancelButton: true,
-                showConfirmButton: true,
-                closeOnConfirm: false,
-                confirmButtonColor: '#09ad95',
-            }, function(value) {
-                if (value == true) {
-                    window.open(
-                        "{{route('lap-bk.pdf')}}",
-                        '_blank'
-                    );
-                    swal.close();
-                }
-            });
-
-        }
+        window.open(
+            "{{route('lap-sb.pdf')}}?tglawal=" + tglawal + "&tglakhir=" + tglakhir,
+            '_blank'
+        );
 
     }
 

@@ -65,7 +65,7 @@ use Carbon\Carbon;
 <body>
 
     <center>
-        <h1 class="font-medium">Laporan Barang Masuk</h1>
+        <h1 class="font-medium">Laporan Barang Keluar</h1>
         @if($tglawal == '')
         <h4 class="font-medium">Semua Tanggal</h4>
         @else
@@ -78,12 +78,12 @@ use Carbon\Carbon;
         <thead>
             <tr>
                 <th align="center" width="1%">NO</th>
-                <th>TGL MASUK</th>
-                <th>KODE BRG MASUK</th>
+                <th>TGL KELUAR</th>
+                <th>KODE BRG KELUAR</th>
                 <th>KODE BARANG</th>
-                <th>CUSTOMER</th>
                 <th>BARANG</th>
-                <th>JML MASUK</th>
+                <th>JML KELUAR</th>
+                <th>TUJUAN</th>
             </tr>
         </thead>
         <tbody>
@@ -91,12 +91,12 @@ use Carbon\Carbon;
             @foreach($data as $d)
             <tr>
                 <td align="center">{{$no++}}</td>
-                <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                <td>{{$d->bm_kode}}</td>
+                <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
+                <td>{{$d->bk_kode}}</td>
                 <td>{{$d->barang_kode}}</td>
-                <td>{{$d->customer_nama}}</td>
                 <td>{{$d->barang_nama}}</td>
-                <td align="center">{{$d->bm_jumlah}}</td>
+                <td align="center">{{$d->bk_jumlah}}</td>
+                <td>{{$d->bk_tujuan}}</td>
             </tr>
             @endforeach
         </tbody>

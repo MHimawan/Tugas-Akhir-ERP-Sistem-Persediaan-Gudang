@@ -15,6 +15,13 @@ use Carbon\Carbon;
     <meta name="keywords" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    <!-- FAVICON -->
+    @if($web->web_logo == '' || $web->web_logo == 'default.png')
+    <link rel="shortcut icon" type="image/x-icon" href="{{url('/assets/default/web/default.png')}}" />
+    @else
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('storage/web/' . $web->web_logo)}}" />
+    @endif
+
     <title>{{$title}}</title>
 
     <style>
@@ -62,10 +69,18 @@ use Carbon\Carbon;
 
 </head>
 
-<body>
+<body onload="window.print()">
 
     <center>
-        <h1 class="font-medium">Laporan Barang Masuk</h1>
+        @if($web->web_logo == '' || $web->web_logo == 'default.png')
+        <img src="{{url('/assets/default/web/default.png')}}" width="80px" alt="">
+        @else
+        <img src="{{asset('storage/web/' . $web->web_logo)}}" width="80px" alt="">
+        @endif
+    </center>
+
+    <center>
+        <h1 class="font-medium">Laporan Barang Keluar</h1>
         @if($tglawal == '')
         <h4 class="font-medium">Semua Tanggal</h4>
         @else
@@ -78,12 +93,12 @@ use Carbon\Carbon;
         <thead>
             <tr>
                 <th align="center" width="1%">NO</th>
-                <th>TGL MASUK</th>
-                <th>KODE BRG MASUK</th>
+                <th>TGL KELUAR</th>
+                <th>KODE BRG KELUAR</th>
                 <th>KODE BARANG</th>
-                <th>CUSTOMER</th>
                 <th>BARANG</th>
-                <th>JML MASUK</th>
+                <th>JML KELUAR</th>
+                <th>TUJUAN</th>
             </tr>
         </thead>
         <tbody>
@@ -91,12 +106,12 @@ use Carbon\Carbon;
             @foreach($data as $d)
             <tr>
                 <td align="center">{{$no++}}</td>
-                <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                <td>{{$d->bm_kode}}</td>
+                <td>{{Carbon::parse($d->bk_tanggal)->translatedFormat('d F Y')}}</td>
+                <td>{{$d->bk_kode}}</td>
                 <td>{{$d->barang_kode}}</td>
-                <td>{{$d->customer_nama}}</td>
                 <td>{{$d->barang_nama}}</td>
-                <td align="center">{{$d->bm_jumlah}}</td>
+                <td align="center">{{$d->bk_jumlah}}</td>
+                <td>{{$d->bk_tujuan}}</td>
             </tr>
             @endforeach
         </tbody>

@@ -3,6 +3,8 @@
 
 <?php
 
+use App\Models\Admin\BarangkeluarModel;
+use App\Models\Admin\BarangmasukModel;
 use Carbon\Carbon;
 ?>
 
@@ -65,7 +67,7 @@ use Carbon\Carbon;
 <body>
 
     <center>
-        <h1 class="font-medium">Laporan Barang Masuk</h1>
+        <h1 class="font-medium">Laporan Stok Barang</h1>
         @if($tglawal == '')
         <h4 class="font-medium">Semua Tanggal</h4>
         @else
@@ -78,25 +80,40 @@ use Carbon\Carbon;
         <thead>
             <tr>
                 <th align="center" width="1%">NO</th>
-                <th>TGL MASUK</th>
-                <th>KODE BRG MASUK</th>
                 <th>KODE BARANG</th>
-                <th>CUSTOMER</th>
                 <th>BARANG</th>
+                <th>STOK AWAL</th>
                 <th>JML MASUK</th>
+                <th>JML KELUAR</th>
+                <th>TOTAL</th>
             </tr>
         </thead>
         <tbody>
             @php $no=1; @endphp
             @foreach($data as $d)
+            <?php
+            if ($tglawal == '') {
+                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
+            } else {
+                $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->where('tbl_barangmasuk.barang_kode', '=', $d->barang_kode)->whereBetween('bm_tanggal', [$tglawal, $tglakhir])->sum('tbl_barangmasuk.bm_jumlah');
+            }
+
+            if ($tglawal) {
+                $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->whereBetween('bk_tanggal', [$tglawal, $tglakhir])->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+            } else {
+                $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+            }
+
+            $totalStok = $jmlmasuk - $jmlkeluar;
+            ?>
             <tr>
                 <td align="center">{{$no++}}</td>
-                <td>{{Carbon::parse($d->bm_tanggal)->translatedFormat('d F Y')}}</td>
-                <td>{{$d->bm_kode}}</td>
                 <td>{{$d->barang_kode}}</td>
-                <td>{{$d->customer_nama}}</td>
                 <td>{{$d->barang_nama}}</td>
-                <td align="center">{{$d->bm_jumlah}}</td>
+                <td align="center">{{$d->barang_stok}}</td>
+                <td align="center">{{$jmlmasuk}}</td>
+                <td align="center">{{$jmlkeluar}}</td>
+                <td align="center">{{$totalStok}}</td>
             </tr>
             @endforeach
         </tbody>

@@ -1,6 +1,6 @@
 /*
-SQLyog Professional v12.5.1 (64 bit)
-MySQL - 10.4.24-MariaDB : Database - db_inventoryweb
+SQLyog Professional
+MySQL - 10.4.22-MariaDB : Database - db_inventoryweb
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 10.4.24-MariaDB : Database - db_inventoryweb
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_inventoryweb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_inventoryweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `db_inventoryweb`;
 
@@ -101,7 +101,7 @@ CREATE TABLE `tbl_akses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`akses_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=488 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=568 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_akses` */
 
@@ -245,7 +245,6 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (377,'1668510437',NULL,NULL,'3','create','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (378,'1668510437',NULL,NULL,'3','update','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (379,'1668510437',NULL,NULL,'3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
-(380,'1668510568',NULL,NULL,'3','view','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (381,'1668510568',NULL,NULL,'3','create','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (382,'1668510568',NULL,NULL,'3','update','2022-11-24 13:08:11','2022-11-24 13:08:11'),
 (383,'1668510568',NULL,NULL,'3','delete','2022-11-24 13:08:11','2022-11-24 13:08:11'),
@@ -343,7 +342,83 @@ insert  into `tbl_akses`(`akses_id`,`menu_id`,`submenu_id`,`othermenu_id`,`role_
 (484,NULL,'22',NULL,'3','create','2022-11-30 13:00:29','2022-11-30 13:00:29'),
 (485,NULL,'23',NULL,'3','create','2022-11-30 13:00:30','2022-11-30 13:00:30'),
 (486,NULL,'23',NULL,'3','update','2022-11-30 13:00:30','2022-11-30 13:00:30'),
-(487,NULL,'23',NULL,'3','delete','2022-11-30 13:00:31','2022-11-30 13:00:31');
+(487,NULL,'23',NULL,'3','delete','2022-11-30 13:00:31','2022-11-30 13:00:31'),
+(488,'1667444041',NULL,NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(489,'1667444041',NULL,NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(490,'1667444041',NULL,NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(491,'1667444041',NULL,NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(493,'1668509889',NULL,NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(494,'1668509889',NULL,NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(495,'1668509889',NULL,NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(497,'1669390641',NULL,NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(498,'1669390641',NULL,NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(499,'1669390641',NULL,NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(501,'1668510437',NULL,NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(502,'1668510437',NULL,NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(503,'1668510437',NULL,NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(504,'1668510568',NULL,NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(505,'1668510568',NULL,NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(506,'1668510568',NULL,NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(507,'1668510568',NULL,NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(508,NULL,'9',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(509,NULL,'9',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(510,NULL,'9',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(511,NULL,'9',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(512,NULL,'17',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(513,NULL,'17',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(514,NULL,'17',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(515,NULL,'17',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(516,NULL,'21',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(517,NULL,'21',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(518,NULL,'21',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(519,NULL,'21',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(520,NULL,'10',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(521,NULL,'10',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(522,NULL,'10',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(523,NULL,'10',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(524,NULL,'18',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(525,NULL,'18',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(526,NULL,'18',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(527,NULL,'18',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(528,NULL,'22',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(529,NULL,'22',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(530,NULL,'22',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(531,NULL,'22',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(532,NULL,'19',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(533,NULL,'19',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(534,NULL,'19',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(535,NULL,'19',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(536,NULL,'23',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(537,NULL,'23',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(538,NULL,'23',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(539,NULL,'23',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(540,NULL,'20',NULL,'4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(541,NULL,'20',NULL,'4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(542,NULL,'20',NULL,'4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(543,NULL,'20',NULL,'4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(545,NULL,NULL,'2','4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(546,NULL,NULL,'3','4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(547,NULL,NULL,'4','4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(548,NULL,NULL,'5','4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(549,NULL,NULL,'6','4','view','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(550,NULL,NULL,'1','4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(551,NULL,NULL,'2','4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(552,NULL,NULL,'3','4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(553,NULL,NULL,'4','4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(554,NULL,NULL,'5','4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(555,NULL,NULL,'6','4','create','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(556,NULL,NULL,'1','4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(557,NULL,NULL,'2','4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(558,NULL,NULL,'3','4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(559,NULL,NULL,'4','4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(560,NULL,NULL,'5','4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(561,NULL,NULL,'6','4','update','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(562,NULL,NULL,'1','4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(563,NULL,NULL,'2','4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(564,NULL,NULL,'3','4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(565,NULL,NULL,'4','4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(566,NULL,NULL,'5','4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31'),
+(567,NULL,NULL,'6','4','delete','2022-12-06 09:34:31','2022-12-06 09:34:31');
 
 /*Table structure for table `tbl_appreance` */
 
@@ -537,14 +612,15 @@ CREATE TABLE `tbl_role` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_role` */
 
 insert  into `tbl_role`(`role_id`,`role_title`,`role_slug`,`role_desc`,`created_at`,`updated_at`) values 
 (1,'Super Admin','super-admin','-','2022-11-15 10:51:04','2022-11-15 10:51:04'),
 (2,'Admin','admin','-','2022-11-15 10:51:04','2022-11-15 10:51:04'),
-(3,'Operator','operator','-','2022-11-15 10:51:04','2022-11-15 10:51:04');
+(3,'Operator','operator','-','2022-11-15 10:51:04','2022-11-15 10:51:04'),
+(4,'Manajer','manajer',NULL,'2022-12-06 09:33:27','2022-12-06 09:33:27');
 
 /*Table structure for table `tbl_satuan` */
 
@@ -611,14 +687,15 @@ CREATE TABLE `tbl_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tbl_user` */
 
 insert  into `tbl_user`(`user_id`,`role_id`,`user_nmlengkap`,`user_nama`,`user_email`,`user_foto`,`user_password`,`created_at`,`updated_at`) values 
 (1,'1','Super Administrator','superadmin','superadmin@gmail.com','undraw_profile.svg','25d55ad283aa400af464c76d713c07ad','2022-11-15 10:51:04','2022-11-15 10:51:04'),
 (2,'2','Administrator','admin','admin@gmail.com','undraw_profile.svg','25d55ad283aa400af464c76d713c07ad','2022-11-15 10:51:04','2022-11-15 10:51:04'),
-(3,'3','Operator','operator','operator@gmail.com','undraw_profile.svg','25d55ad283aa400af464c76d713c07ad','2022-11-15 10:51:04','2022-11-15 10:51:04');
+(3,'3','Operator','operator','operator@gmail.com','undraw_profile.svg','25d55ad283aa400af464c76d713c07ad','2022-11-15 10:51:04','2022-11-15 10:51:04'),
+(4,'4','Manajer','manajer','manajer@gmail.com','undraw_profile.svg','25d55ad283aa400af464c76d713c07ad','2022-12-06 09:33:54','2022-12-06 09:33:54');
 
 /*Table structure for table `tbl_web` */
 

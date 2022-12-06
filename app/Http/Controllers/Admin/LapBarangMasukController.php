@@ -80,7 +80,7 @@ class LapBarangMasukController extends Controller
 
                     return $barang;
                 })
-                ->rawColumns(['action', 'tgl', 'customer'])->make(true);
+                ->rawColumns(['tgl', 'customer', 'barang'])->make(true);
         }
     }
 }
