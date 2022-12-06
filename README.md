@@ -6,7 +6,7 @@ Aplikasi ini bisa anda gunakan untuk mengontrol stock barang yang anda miliki se
 Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash admin`.
 
 ## *:sparkles: Fitur*
-* **Dashboard** `Progress`
+* **Dashboard**
 * **Jenis Barang**
 * **Satuan Barang**
 * **Merk Barang**
@@ -14,8 +14,9 @@ Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash ad
 * **Customer**
 * **Barang Masuk**
 * **Barang Keluar**
-* **Laporan Barang Masuk** `Progress`
-* **Laporan Barang Keluar** `Progress`
+* **Laporan Barang Masuk**
+* **Laporan Barang Keluar**
+* **Laporan Stok Barang**
 * **Setting Website**
 * **Setting Hak Akses user per Role**
 * **Setting Menu (bisa tambah menu atau bisa hapus menu)**
@@ -24,7 +25,7 @@ Untuk tampilannya saya sudah pasang template admin `bootstrap v5` yaitu `sash ad
 * **Yajra Datatables**
 * **SweetAlert**
 * **jQuery**
-* **dan banyak lagi..**
+* **Datetime picker**
 
 ## *:gear: Requirement*
 <p>
@@ -82,6 +83,14 @@ username: `operator` password: `12345678`
 ![87663504-3da5-4153-9eaf-ab6b0fdab721](https://user-images.githubusercontent.com/47371845/204067965-1c237723-1bf0-4bd2-bcb4-849843f03fdc.png)
 ![81b66810-c612-4cb3-b38b-0969c995daaf](https://user-images.githubusercontent.com/47371845/204804529-be7bb2ea-5c77-4747-bda1-af356c9ca2fc.png)
 ![eb346127-7335-4d21-b7d3-4a6fd3546f71](https://user-images.githubusercontent.com/47371845/204804607-3a4a742a-438e-4d5b-bef2-ba3e85380f4a.png)
+![2cc02ed2-b349-4547-b4f4-8bb387d76c85](https://user-images.githubusercontent.com/47371845/205876876-f8eb42ca-e5fe-4978-a727-a00b86fb6fa3.png)
+![2147a66f-27a7-4b67-9ce3-4e370ea86a3d](https://user-images.githubusercontent.com/47371845/205876925-27ce6d45-d11e-437a-8993-6ca99cf84cbf.png)
+![Capture](https://user-images.githubusercontent.com/47371845/205876945-1ed3f55e-62bc-4e9e-a5de-20db3ff557fb.PNG)
+![b38ca89e-6b3f-42d8-854f-012d67d2eca6](https://user-images.githubusercontent.com/47371845/205876998-01d7a4cf-5876-4a13-b58b-6dc15d189248.png)
+![5fb52443-21e7-4d00-bc44-a22e95242058](https://user-images.githubusercontent.com/47371845/205877019-d0897230-4179-494b-8909-23add66d9c7f.png)
+![Capture1](https://user-images.githubusercontent.com/47371845/205877040-d0f4aa96-a273-4b39-a582-3d7bd8ea1396.PNG)
+![06bb2407-764d-4748-afc8-5cd81da997f4](https://user-images.githubusercontent.com/47371845/205877067-d9fc54fd-c4e0-4a0a-887d-719238673941.png)
+![Capture3](https://user-images.githubusercontent.com/47371845/205877133-10388e03-b28d-456e-9636-3a8729af7f06.PNG)
 ![dbb52cc8-fc45-4abe-a9dd-4ffcf5107c4c](https://user-images.githubusercontent.com/47371845/204021151-76cec801-0b2d-4cf1-9282-334f88865cf3.png)
 ![f23b34f3-4a46-4559-9943-a0a3d3f80178](https://user-images.githubusercontent.com/47371845/204021178-d7ad1914-996e-459f-bd69-ec6424a84b34.png)
 ![f8a4bf7a-7732-408c-b462-84954ec703c3](https://user-images.githubusercontent.com/47371845/204021197-a312efcd-12b6-4317-b0a1-8a917d4d5b88.png)
