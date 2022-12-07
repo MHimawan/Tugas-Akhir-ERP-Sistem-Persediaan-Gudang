@@ -7,7 +7,6 @@ use App\Models\Admin\AksesModel;
 use App\Models\Admin\UserModel;
 use App\Models\Admin\WebModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 
@@ -15,7 +14,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        $data["title"] = "Login Admin Panel";
+        $data["title"] = "Login";
         $data["web"] = WebModel::first();
         return view('Admin.Login.index', $data);
     }
