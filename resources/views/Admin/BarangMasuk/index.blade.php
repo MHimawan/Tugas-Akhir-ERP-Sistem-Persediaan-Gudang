@@ -50,7 +50,7 @@
 <!-- END ROW -->
 
 @include('Admin.BarangMasuk.tambah')
-@include('Admin.BarangMasuk.edit', ['barang' => $barang, 'customer' => $customer])
+@include('Admin.BarangMasuk.edit')
 @include('Admin.BarangMasuk.hapus')
 @include('Admin.BarangMasuk.barang')
 

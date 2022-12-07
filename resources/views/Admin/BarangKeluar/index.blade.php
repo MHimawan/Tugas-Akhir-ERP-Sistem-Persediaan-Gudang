@@ -51,9 +51,10 @@
     </div>
     <!-- END ROW -->
 
-    @include('Admin.BarangKeluar.tambah', ['barang' => $barang])
-    @include('Admin.BarangKeluar.edit', ['barang' => $barang])
+    @include('Admin.BarangKeluar.tambah')
+    @include('Admin.BarangKeluar.edit')
     @include('Admin.BarangKeluar.hapus')
+    @include('Admin.BarangKeluar.barang')
 
     <script>
         function generateID() {
@@ -64,9 +65,11 @@
         function update(data) {
             $("input[name='idbkU']").val(data.bk_id);
             $("input[name='bkkodeU']").val(data.bk_kode);
-            $("select[name='barangU']").val(data.barang_kode);
+            $("input[name='kdbarangU']").val(data.barang_kode);
             $("input[name='jmlU']").val(data.bk_jumlah);
             $("input[name='tujuanU']").val(data.bk_tujuan.replace(/_/g, ' '));
+
+            getbarangbyidU(data.barang_kode);
 
             $("input[name='tglkeluarU").bootstrapdatepicker({
                 format: 'yyyy-mm-dd',

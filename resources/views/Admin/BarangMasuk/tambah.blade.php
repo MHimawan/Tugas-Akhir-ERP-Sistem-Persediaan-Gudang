@@ -119,6 +119,9 @@
                 } else {
                     $("#loaderkd").addClass('d-none');
                     $("#status").val("false");
+                    $("#nmbarang").val('');
+                    $("#satuan").val('');
+                    $("#jenis").val('');
                 }
             }
         });
