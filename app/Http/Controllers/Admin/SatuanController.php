@@ -14,7 +14,7 @@ class SatuanController extends Controller
     public function index()
     {
         $data["title"] = "Satuan";
-        $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'SAtuan', 'tbl_akses.akses_type' => 'create'))->count();
+        $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Satuan', 'tbl_akses.akses_type' => 'create'))->count();
         return view('Admin.Satuan.index', $data);
     }
 
@@ -36,8 +36,8 @@ class SatuanController extends Controller
                         "satuan_keterangan" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->satuan_keterangan))
                     );
                     $button = '';
-                    $hakEdit = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'update'))->count();
-                    $hakDelete = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Barang', 'tbl_akses.akses_type' => 'delete'))->count();
+                    $hakEdit = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Satuan', 'tbl_akses.akses_type' => 'update'))->count();
+                    $hakDelete = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Satuan', 'tbl_akses.akses_type' => 'delete'))->count();
                     if ($hakEdit > 0 && $hakDelete > 0) {
                         $button .= '
                         <div class="g-2">
