@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\AksesModel;
+use App\Models\Admin\BarangkeluarModel;
+use App\Models\Admin\BarangmasukModel;
 use App\Models\Admin\BarangModel;
 use App\Models\Admin\JenisBarangModel;
 use App\Models\Admin\MerkModel;
@@ -70,6 +72,32 @@ class BarangController extends Controller
 
                     return $currency;
                 })
+                ->addColumn('totalstok', function ($row) use ($request) {
+                    if ($request->tglawal == '') {
+                        $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->where('tbl_barangmasuk.barang_kode', '=', $row->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
+                    } else {
+                        $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->where('tbl_barangmasuk.barang_kode', '=', $row->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
+                    }
+
+
+                    if ($request->tglawal) {
+                        $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->whereBetween('bk_tanggal', [$request->tglawal, $request->tglakhir])->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+                    } else {
+                        $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+                    }
+
+                    $totalstok = $row->barang_stok + ($jmlmasuk - $jmlkeluar);
+                    if($totalstok == 0){
+                        $result = '<span class="">'.$totalstok.'</span>';
+                    }else if($totalstok > 0){
+                        $result = '<span class="text-success">'.$totalstok.'</span>';
+                    }else{
+                        $result = '<span class="text-danger">'.$totalstok.'</span>';
+                    }
+                    
+
+                    return $result;
+                })
                 ->addColumn('action', function ($row) {
                     $array = array(
                         "barang_id" => $row->barang_id,
@@ -111,7 +139,7 @@ class BarangController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['action', 'img', 'jenisbarang', 'satuan', 'merk', 'currency'])->make(true);
+                ->rawColumns(['action', 'img', 'jenisbarang', 'satuan', 'merk', 'currency', 'totalstok'])->make(true);
         }
     }
 
@@ -150,6 +178,32 @@ class BarangController extends Controller
 
                     return $currency;
                 })
+                ->addColumn('totalstok', function ($row) use ($request) {
+                    if ($request->tglawal == '') {
+                        $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->where('tbl_barangmasuk.barang_kode', '=', $row->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
+                    } else {
+                        $jmlmasuk = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->where('tbl_barangmasuk.barang_kode', '=', $row->barang_kode)->sum('tbl_barangmasuk.bm_jumlah');
+                    }
+
+
+                    if ($request->tglawal) {
+                        $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->whereBetween('bk_tanggal', [$request->tglawal, $request->tglakhir])->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+                    } else {
+                        $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
+                    }
+
+                    $totalstok = $row->barang_stok + ($jmlmasuk - $jmlkeluar);
+                    if($totalstok == 0){
+                        $result = '<span class="">'.$totalstok.'</span>';
+                    }else if($totalstok > 0){
+                        $result = '<span class="text-success">'.$totalstok.'</span>';
+                    }else{
+                        $result = '<span class="text-danger">'.$totalstok.'</span>';
+                    }
+                    
+
+                    return $result;
+                })
                 ->addColumn('action', function ($row) use ($request) {
                     $array = array(
                         "barang_kode" => $row->barang_kode,
@@ -174,7 +228,7 @@ class BarangController extends Controller
 
                     return $button;
                 })
-                ->rawColumns(['action', 'img', 'jenisbarang', 'satuan', 'merk', 'currency'])->make(true);
+                ->rawColumns(['action', 'img', 'jenisbarang', 'satuan', 'merk', 'currency', 'totalstok'])->make(true);
         }
     }
 

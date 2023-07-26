@@ -118,7 +118,7 @@ use Carbon\Carbon;
                 $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $d->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
             }
 
-            $totalStok = $jmlmasuk-$jmlkeluar;
+            $totalStok = $d->barang_stok + ($jmlmasuk-$jmlkeluar);
             ?>
             <tr>
                 <td align="center">{{$no++}}</td>

@@ -95,7 +95,7 @@ class LapStokBarangController extends Controller
                         $jmlkeluar = BarangkeluarModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangkeluar.barang_kode')->where('tbl_barangkeluar.barang_kode', '=', $row->barang_kode)->sum('tbl_barangkeluar.bk_jumlah');
                     }
 
-                    $totalstok = $jmlmasuk - $jmlkeluar;
+                    $totalstok = $row->barang_stok + ($jmlmasuk - $jmlkeluar);
                     if($totalstok == 0){
                         $result = '<span class="">'.$totalstok.'</span>';
                     }else if($totalstok > 0){

@@ -1,6 +1,6 @@
 /*
-SQLyog Professional
-MySQL - 10.4.22-MariaDB : Database - db_inventoryweb
+SQLyog Professional v12.5.1 (64 bit)
+MySQL - 10.4.27-MariaDB : Database - db_inventoryweb
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 10.4.22-MariaDB : Database - db_inventoryweb
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_inventoryweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_inventoryweb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 
 USE `db_inventoryweb`;
 
@@ -22,11 +22,11 @@ DROP TABLE IF EXISTS `failed_jobs`;
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `migrations`;
 
 CREATE TABLE `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -71,11 +71,11 @@ DROP TABLE IF EXISTS `personal_access_tokens`;
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(255) NOT NULL,
   `tokenable_id` bigint(20) unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `expires_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -93,11 +93,11 @@ DROP TABLE IF EXISTS `tbl_akses`;
 
 CREATE TABLE `tbl_akses` (
   `akses_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `menu_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `submenu_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `othermenu_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `role_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `akses_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `menu_id` varchar(255) DEFAULT NULL,
+  `submenu_id` varchar(255) DEFAULT NULL,
+  `othermenu_id` varchar(255) DEFAULT NULL,
+  `role_id` varchar(255) NOT NULL,
+  `akses_type` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`akses_id`)
@@ -426,12 +426,12 @@ DROP TABLE IF EXISTS `tbl_appreance`;
 
 CREATE TABLE `tbl_appreance` (
   `appreance_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `appreance_layout` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `appreance_theme` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `appreance_menu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `appreance_header` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `appreance_sidestyle` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` varchar(255) NOT NULL,
+  `appreance_layout` varchar(255) DEFAULT NULL,
+  `appreance_theme` varchar(255) DEFAULT NULL,
+  `appreance_menu` varchar(255) DEFAULT NULL,
+  `appreance_header` varchar(255) DEFAULT NULL,
+  `appreance_sidestyle` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`appreance_id`)
@@ -460,7 +460,7 @@ CREATE TABLE `tbl_barang` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`barang_id`,`barang_kode`,`barang_nama`,`barang_harga`,`barang_stok`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 /*Data for the table `tbl_barang` */
 
@@ -474,11 +474,11 @@ DROP TABLE IF EXISTS `tbl_barangkeluar`;
 
 CREATE TABLE `tbl_barangkeluar` (
   `bk_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `bk_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barang_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bk_tanggal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bk_tujuan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bk_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bk_kode` varchar(255) NOT NULL,
+  `barang_kode` varchar(255) NOT NULL,
+  `bk_tanggal` varchar(255) NOT NULL,
+  `bk_tujuan` varchar(255) DEFAULT NULL,
+  `bk_jumlah` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`bk_id`)
@@ -488,7 +488,7 @@ CREATE TABLE `tbl_barangkeluar` (
 
 insert  into `tbl_barangkeluar`(`bk_id`,`bk_kode`,`barang_kode`,`bk_tanggal`,`bk_tujuan`,`bk_jumlah`,`created_at`,`updated_at`) values 
 (2,'BK-1669811950758','BRG-1669390220236','2022-11-01','Gudang Tasikmalaya','20','2022-11-30 12:39:22','2022-11-30 12:47:14'),
-(3,'BK-1669812439198','BRG-1669390175622','2022-11-02','Gudang Prindapan','30','2022-11-30 12:47:39','2022-11-30 12:47:39');
+(3,'BK-1669812439198','BRG-1669390175622','2022-11-02','Gudang Prindapan','5','2022-11-30 12:47:39','2023-07-26 04:18:25');
 
 /*Table structure for table `tbl_barangmasuk` */
 
@@ -496,11 +496,11 @@ DROP TABLE IF EXISTS `tbl_barangmasuk`;
 
 CREATE TABLE `tbl_barangmasuk` (
   `bm_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `bm_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barang_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bm_tanggal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bm_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bm_kode` varchar(255) NOT NULL,
+  `barang_kode` varchar(255) NOT NULL,
+  `customer_id` varchar(255) NOT NULL,
+  `bm_tanggal` varchar(255) NOT NULL,
+  `bm_jumlah` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`bm_id`)
@@ -518,10 +518,10 @@ DROP TABLE IF EXISTS `tbl_customer`;
 
 CREATE TABLE `tbl_customer` (
   `customer_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `customer_nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_alamat` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `customer_notelp` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `customer_nama` varchar(255) NOT NULL,
+  `customer_slug` varchar(255) NOT NULL,
+  `customer_alamat` text DEFAULT NULL,
+  `customer_notelp` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
@@ -538,9 +538,9 @@ DROP TABLE IF EXISTS `tbl_jenisbarang`;
 
 CREATE TABLE `tbl_jenisbarang` (
   `jenisbarang_id` int(255) unsigned NOT NULL AUTO_INCREMENT,
-  `jenisbarang_nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenisbarang_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenisbarang_ket` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jenisbarang_nama` varchar(255) NOT NULL,
+  `jenisbarang_slug` varchar(255) NOT NULL,
+  `jenisbarang_ket` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`jenisbarang_id`)
@@ -559,12 +559,12 @@ DROP TABLE IF EXISTS `tbl_menu`;
 
 CREATE TABLE `tbl_menu` (
   `menu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `menu_judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `menu_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `menu_icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `menu_redirect` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `menu_sort` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `menu_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `menu_judul` varchar(255) NOT NULL,
+  `menu_slug` varchar(255) NOT NULL,
+  `menu_icon` varchar(255) NOT NULL,
+  `menu_redirect` varchar(255) NOT NULL,
+  `menu_sort` varchar(255) NOT NULL,
+  `menu_type` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`menu_id`)
@@ -585,9 +585,9 @@ DROP TABLE IF EXISTS `tbl_merk`;
 
 CREATE TABLE `tbl_merk` (
   `merk_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `merk_nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `merk_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `merk_keterangan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `merk_nama` varchar(255) NOT NULL,
+  `merk_slug` varchar(255) NOT NULL,
+  `merk_keterangan` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`merk_id`)
@@ -606,9 +606,9 @@ DROP TABLE IF EXISTS `tbl_role`;
 
 CREATE TABLE `tbl_role` (
   `role_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `role_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `role_desc` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `role_title` varchar(255) NOT NULL,
+  `role_slug` varchar(255) NOT NULL,
+  `role_desc` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`role_id`)
@@ -628,9 +628,9 @@ DROP TABLE IF EXISTS `tbl_satuan`;
 
 CREATE TABLE `tbl_satuan` (
   `satuan_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `satuan_nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `satuan_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `satuan_keterangan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `satuan_nama` varchar(255) NOT NULL,
+  `satuan_slug` varchar(255) NOT NULL,
+  `satuan_keterangan` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`satuan_id`)
@@ -649,11 +649,11 @@ DROP TABLE IF EXISTS `tbl_submenu`;
 
 CREATE TABLE `tbl_submenu` (
   `submenu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `menu_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `submenu_judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `submenu_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `submenu_redirect` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `submenu_sort` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `menu_id` varchar(255) NOT NULL,
+  `submenu_judul` varchar(255) NOT NULL,
+  `submenu_slug` varchar(255) NOT NULL,
+  `submenu_redirect` varchar(255) NOT NULL,
+  `submenu_sort` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`submenu_id`)
@@ -678,12 +678,12 @@ DROP TABLE IF EXISTS `tbl_user`;
 
 CREATE TABLE `tbl_user` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `role_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_nmlengkap` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_foto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role_id` varchar(255) NOT NULL,
+  `user_nmlengkap` varchar(255) NOT NULL,
+  `user_nama` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_foto` varchar(255) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`)
@@ -703,9 +703,9 @@ DROP TABLE IF EXISTS `tbl_web`;
 
 CREATE TABLE `tbl_web` (
   `web_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `web_nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `web_logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `web_deskripsi` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `web_nama` varchar(255) NOT NULL,
+  `web_logo` varchar(255) NOT NULL,
+  `web_deskripsi` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`web_id`)
